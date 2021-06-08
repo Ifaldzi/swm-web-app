@@ -42,6 +42,24 @@ To run the application run this command
 php artisan serve
 ```
 
+## Instruction of Using Git
+
+If you want to push to github
+first, create new branch with
+    git branch branch_name
+then, move to that branch
+    git checkout branch_name
+and then, add, commit, and push as usual
+    git add .
+    git commit -m "commit message"
+    git push -u origin branch_name
+
+To pull from github
+1. move to branch you want to pull from (master)
+    git checkout branch_name
+2. run pull command
+    git pull
+
 ## Laravel Sponsors
 
 We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
