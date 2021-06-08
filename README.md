@@ -45,11 +45,17 @@ php artisan serve
 ## Instruction of Using Git
 
 If you want to push to github
+
 first, create new branch with
+
     git branch branch_name
+
 then, move to that branch
+
     git checkout branch_name
+
 and then, add, commit, and push as usual
+    
     git add .
     git commit -m "commit message"
     git push -u origin branch_name
