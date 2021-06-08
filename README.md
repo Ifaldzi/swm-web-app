@@ -62,12 +62,14 @@ and then, add, commit, and push as usual
 
 To pull from github
 1. move to branch you want to pull from (master)
-    
-    git checkout branch_name
+```bash
+git checkout branch_name
+```
 
 2. run pull command
-
-    git pull
+```bash
+git pull
+```
 
 ## Laravel Sponsors
 
