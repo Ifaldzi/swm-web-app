@@ -1,14 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Login</title>
-       <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-</head>
-<body>
+@extends('layouts.app')
+
+@section('content')
     <div class="container">
         <div class="col-md-4 offset-md-4 mt-5">
             <div class="card">
@@ -58,7 +50,4 @@
             </div>
         </div>
     </div>
-</body>
-</html>
-{{-- </body>
-</html> --}}
+@endsection
