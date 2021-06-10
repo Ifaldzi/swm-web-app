@@ -78,6 +78,7 @@ h1, h2, h3, h4, h5, h6 {
   z-index: 997;
   padding: 15px 0;
   box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+  width: auto;
 }
 
 #header .logo {
@@ -159,9 +160,9 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 0 10px 50px;
+  padding: 5px 0 5px 50px;
   font-family: "Roboto", sans-serif;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 600;
   color: white;
   white-space: nowrap;
@@ -302,7 +303,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .navbar-mobile a {
   padding: 10px 20px;
-  font-size: 15px;
+  font-size: 12px;
   color: #111;
 }
 
