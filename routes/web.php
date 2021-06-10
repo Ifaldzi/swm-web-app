@@ -15,7 +15,9 @@ use App\Http\Controllers\AuthenticationController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('index');
+})->name('home');
+
+
 
 Route::get('/login',[AuthenticationController::class,'showFormLogin']);
