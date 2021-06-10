@@ -2192,3 +2192,12 @@ section {
   color: #fff;
   text-decoration: none;
 }
+input{
+  text-align: center;
+}
+
+#loginicon{
+  position: relative;
+  left: 32%;
+  top: -30px;
+}
