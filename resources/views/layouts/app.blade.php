@@ -10,6 +10,7 @@
 </head>
 <body>
     <h1 class="text-center">Smart Waste Management</h1>
+
     @yield('content')
 </body>
 </html>l
