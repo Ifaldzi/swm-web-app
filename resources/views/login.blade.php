@@ -1,11 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
+    <div class="container pt-5">
         <div class="col-md-4 offset-md-4 mt-5">
-            <div class="card">
-                <div class="card-header">
-                    <h3 class="text-center">Form Login</h3>
+            <div class="card bg-light">
+                <div class="header mx-auto">
+                    <div id="loginicon" >
+                    <img  src="assets/img/icon.jpeg" alt="" width="35%">
+                    </div>
+                    <h3 class="fw-bold text-center pt-4 px-4">Login Administrator</h3>
                 </div>
                 <form action="#" method="post">
                 @csrf
@@ -33,18 +36,16 @@
                             {{ Session::get('error') }}
                         </div>
                     @endif
-                    <div class="form-group">
-                        <label for=""><strong>Username</strong></label>
-                        <input type="text" name="username" class="form-control" placeholder="username">
+                    <div class="form-group p-2 m-2">
+                        <input type="text" name="username" class="form-control shadow" placeholder="Username">
                     </div>
-                    <div class="form-group">
-                        <label for=""><strong>Password</strong></label>
-                        <input type="password" name="password" class="form-control" placeholder="Password">
+                    <div class="form-group p-2 m-2">
+                        <input type="password" name="password" class="form-control shadow" placeholder="Password">
                     </div>
-                </div>
-                <div class="card-footer">
-                    <button type="submit" class="btn btn-primary btn-block">Log In</button>
-                    <p class="text-center">Belum punya akun? <a href="#">Register</a> sekarang!</p>
+                    <div class="mx-auto p-4 w-75">
+                        <button type="submit" class="shadow fw-bold btn btn-warning btn-block ">Login</button>
+                    </div>
+                    {{-- <p class="text-center">Belum punya akun? <a href="#">Register</a> sekarang!</p> --}}
                 </div>
                 </form>
             </div>
