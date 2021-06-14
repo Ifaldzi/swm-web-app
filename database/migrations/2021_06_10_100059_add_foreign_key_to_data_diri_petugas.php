@@ -27,7 +27,7 @@ class AddForeignKeyToDataDiriPetugas extends Migration
     public function down()
     {
         Schema::table('data_diri_petugas', function (Blueprint $table) {
-            //
+            $table->dropConstrainedForeignId('id_petugas');
         });
     }
 }

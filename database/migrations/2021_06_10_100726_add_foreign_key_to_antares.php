@@ -29,7 +29,8 @@ class AddForeignKeyToAntares extends Migration
     public function down()
     {
         Schema::table('antares', function (Blueprint $table) {
-            //
+            $table->dropConstrainedForeignId('id_tempat_sampah');
+            $table->dropConstrainedForeignId('id_truk');
         });
     }
 }

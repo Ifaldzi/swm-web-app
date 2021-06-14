@@ -29,7 +29,8 @@ class AddForeignKeyToPetugasKebersihan extends Migration
     public function down()
     {
         Schema::table('petugas_kebersihan', function (Blueprint $table) {
-            //
+            $table->dropConstrainedForeignId('id_administrator');
+            $table->dropConstrainedForeignId('id_truk');
         });
     }
 }

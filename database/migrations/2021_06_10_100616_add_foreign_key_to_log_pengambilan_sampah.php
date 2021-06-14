@@ -28,7 +28,8 @@ class AddForeignKeyToLogPengambilanSampah extends Migration
     public function down()
     {
         Schema::table('log_pengambilan_sampah', function (Blueprint $table) {
-            //
+            $table->dropConstrainedForeignId('id_tempat_sampah');
+            $table->dropConstrainedForeignId('id_truk');
         });
     }
 }

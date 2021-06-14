@@ -27,7 +27,7 @@ class AddForeignKeyToLokasi extends Migration
     public function down()
     {
         Schema::table('lokasi', function (Blueprint $table) {
-            //
+            $table->dropConstrainedForeignId('id_tempat_sampah');
         });
     }
 }
