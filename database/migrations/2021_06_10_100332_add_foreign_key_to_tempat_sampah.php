@@ -29,7 +29,9 @@ class AddForeignKeyToTempatSampah extends Migration
     public function down()
     {
         Schema::table('tempat_sampah', function (Blueprint $table) {
-            //
+            $table->dropConstrainedForeignId('id_administrator');
+            $table->dropConstrainedForeignId('id_truk');
+            $table->dropConstrainedForeignId('id_antares');
         });
     }
 }

@@ -27,7 +27,7 @@ class AddForeignKeyToKendaraanPengangkutSampah extends Migration
     public function down()
     {
         Schema::table('kendaraan_pengangkut_sampah', function (Blueprint $table) {
-            //
+            $table->dropConstrainedForeignId('id_antares');
         });
     }
 }
