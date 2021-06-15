@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthenticationController;
+use App\Http\Controllers\PagesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,10 +15,18 @@ use App\Http\Controllers\AuthenticationController;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-})->name('home');
+// Route::get('/', function () {
+//     return view('index');
+// })->name('home');
 
 
 
-Route::get('/login',[AuthenticationController::class,'showFormLogin']);
+Route::get('/',[AuthenticationController::class,'showFormLogin'])->name('login');
+Route::get('/login',[AuthenticationController::class,'showFormLogin'])->name('login');
+Route::post('/login',[AuthenticationController::class,'login'])->name('login');
+
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/index',[PagesController::class,'homePage'])->name('home');
+    Route::get('/logout',[AuthenticationController::class,'logout'])->name('logout');
+
+});
