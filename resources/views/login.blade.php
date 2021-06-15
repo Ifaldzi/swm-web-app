@@ -10,30 +10,36 @@
                     </div>
                     <h3 class="fw-bold text-center pt-4 px-4">Login Administrator</h3>
                 </div>
-                <form action="#" method="post">
+                <form action="{{route('login')}}" method="post">
                 @csrf
                 <div class="card-body">
-                    @if(session('errors'))
+                    {{-- @if(session('errors'))
                         <div class="alert alert-danger alert-dismissible fade show" role="alert">
                             Something it's wrong:
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                 <span aria-hidden="true">×</span>
                             </button>
                             <ul>
-                            {{-- @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                            @endforeach --}}
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
                             </ul>
                         </div>
-                    @endif
-                    @if (Session::has('success'))
+                    @endif --}}
+
+                    {{-- @if (Session::has('success'))
                         <div class="alert alert-success">
                             {{ Session::get('success') }}
                         </div>
-                    @endif
-                    @if (Session::has('error'))
-                        <div class="alert alert-danger">
-                            {{ Session::get('error') }}
+                    @endif --}}
+
+                    {{-- Error Alert --}}
+                    @if(session('error'))
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            {{session('error')}}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
                         </div>
                     @endif
                     <div class="form-group p-2 m-2">
