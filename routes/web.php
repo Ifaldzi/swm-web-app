@@ -28,5 +28,11 @@ Route::post('/login',[AuthenticationController::class,'login'])->name('login');
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/index',[PagesController::class,'homePage'])->name('home');
     Route::get('/logout',[AuthenticationController::class,'logout'])->name('logout');
+    Route::get('/monitoring-sampah', function () {
+        return view('monitoring/sampah');
+    })->name('monitoring-sampah');
 
+    Route::get('/monitoring-truk', function () {
+        return view('monitoring/truk');
+    })->name('monitoring-truk');
 });

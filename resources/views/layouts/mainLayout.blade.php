@@ -53,8 +53,8 @@
         <ul class = "me-1 text-center">
           <li><a href="{{route('home')}}" class="active">Home</a></li>
           <li><a href="#">REGISTRASI<br>PETUGAS</a></li>
-          <li><a href="#">MONITORING<br>TEMPAT SAMPAH</a></li>
-          <li><a href="#">MONITORING TRUK</a></li>
+          <li><a href="{{route('monitoring-sampah')}}">MONITORING<br>TEMPAT SAMPAH</a></li>
+          <li><a href="{{route('monitoring-truk')}}">MONITORING<br>TRUK</a></li>
           <li><a href="#">RUTE TERCEPAT</a></li>
           <li><a href="#">LOG PENGAMBILAN<br>TEMPAT SAMPAH</a></li>
           <li class="dropdown me-5">
