@@ -41,24 +41,37 @@
 
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top bg-success">
-    <div class="container d-flex align-items-center">
-
-      <h1 class="logo me-auto"><a href="{{route('home')}}">WALL-E</a></h1>
+    <div class="d-flex justify-content-end align-items-center">
+      <div class="container d-flex justify-content-start ms-4">
+      <h1 class="logo "><a href="{{route('home')}}">WALL-E</a></h1>
+      </div>
       <!-- <a href="" class="navbar-brand"> -->
         <!-- <img src="{{asset('assets/img/about.jpg')}}" alt="" class="d-inline-block align-text-top" width="30" height="24"> -->
-      </a>
+      {{-- </a> --}}
 
       <nav id="navbar" class="navbar order-last order-lg-0 navbar-dark">
-        <ul class = "text-center">
+        <ul class = "me-1 text-center">
           <li><a href="{{route('home')}}" class="active">Home</a></li>
           <li><a href="#">REGISTRASI<br>PETUGAS</a></li>
           <li><a href="#">MONITORING<br>TEMPAT SAMPAH</a></li>
-          <li><a href="#">MONITORING<br>TRUK</a></li>
+          <li><a href="#">MONITORING TRUK</a></li>
           <li><a href="#">RUTE TERCEPAT</a></li>
           <li><a href="#">LOG PENGAMBILAN<br>TEMPAT SAMPAH</a></li>
-
+          <li class="dropdown me-5">
+            <a  href="#" role="button" class="nav-link dropdown" id="dropdownLogout" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class=" pe-5 bi bi-person-circle" style="font-size: 2em;"></i>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item " href="#">Halo</a></li>
+              <li><a class="dropdown-item " href="#">Hai</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item " href="#">Logout</a></li>
+            </ul>
+          </li>
         </ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>
+        <div class="d-flex justif-content-end me-5">
+        <i class="bi bi-list mobile-nav-toggle" style="font-size: 2.5em;  color: #fff;"></i>
+        </div>
       </nav><!-- .navbar -->
     </div>
   </header>
