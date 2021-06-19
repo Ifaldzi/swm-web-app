@@ -21,7 +21,6 @@
                     <th scope="row"><img src="assets/img/icon/trukSampah.jpeg" alt=""class="img-thumbnail"></th>
                     <td >{{$i+1}}</td>
                     <td>Subang</td>
-                    <td><a href="#" class="btn btn-primary">Send</a></td>
                     </tr>
                 @endfor
             </tbody>
