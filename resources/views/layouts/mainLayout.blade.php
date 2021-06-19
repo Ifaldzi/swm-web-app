@@ -53,10 +53,12 @@
         <ul class = "me-1 text-center">
           <li><a href="{{route('home')}}" class="active">Home</a></li>
           <li><a href="#">REGISTRASI<br>PETUGAS</a></li>
+
+          <li><a href="{{route('RuteTercepat')}}" >RUTE TERCEPAT</a></li>
+          <li><a href="{{route('LogSampah')}}">LOG PENGAMBILAN<br>TEMPAT SAMPAH</a></li>
+
           <li><a href="{{route('monitoring-sampah')}}">MONITORING<br>TEMPAT SAMPAH</a></li>
           <li><a href="{{route('monitoring-truk')}}">MONITORING<br>TRUK</a></li>
-          <li><a href="#">RUTE TERCEPAT</a></li>
-          <li><a href="#">LOG PENGAMBILAN<br>TEMPAT SAMPAH</a></li>
           <li class="dropdown me-5">
             <a  href="#" role="button" class="nav-link dropdown" id="dropdownLogout" data-bs-toggle="dropdown" aria-expanded="false">
               <i class=" pe-5 bi bi-person-circle" style="font-size: 2em;"></i>
