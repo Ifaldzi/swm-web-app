@@ -54,8 +54,8 @@
           <li><a href="#">REGISTRASI<br>PETUGAS</a></li>
           <li><a href="#">MONITORING<br>TEMPAT SAMPAH</a></li>
           <li><a href="#">MONITORING<br>TRUK</a></li>
-          <li><a href="#">RUTE TERCEPAT</a></li>
-          <li><a href="#">LOG PENGAMBILAN<br>TEMPAT SAMPAH</a></li>
+          <li><a href="{{route('RuteTercepat')}}" >RUTE TERCEPAT</a></li>
+          <li><a href="{{route('LogSampah')}}">LOG PENGAMBILAN<br>TEMPAT SAMPAH</a></li>
 
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>

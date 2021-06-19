@@ -27,6 +27,8 @@ Route::post('/login',[AuthenticationController::class,'login'])->name('login');
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/index',[PagesController::class,'homePage'])->name('home');
+    Route::get('/RuteTercepat',[PagesController::class,'RuteTercepat'])->name('RuteTercepat');
+    Route::get('/LogSampah',[PagesController::class,'LogSampah'])->name('LogSampah');
     Route::get('/logout',[AuthenticationController::class,'logout'])->name('logout');
 
 });
