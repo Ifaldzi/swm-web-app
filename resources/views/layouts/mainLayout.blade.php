@@ -51,9 +51,9 @@
       <nav id="navbar" class="navbar order-last order-lg-0 navbar-dark">
         <ul class = "text-center">
           <li><a href="{{route('home')}}" class="active">Home</a></li>
-          <li><a href="#">REGISTRASI<br>PETUGAS</a></li>
-          <li><a href="#">MONITORING<br>TEMPAT SAMPAH</a></li>
-          <li><a href="#">MONITORING<br>TRUK</a></li>
+          <li><a href="{{route('registration')}}">REGISTRASI<br>PETUGAS</a></li>
+          <li><a href="{{route('addTempatSampah')}}">MONITORING<br>TEMPAT SAMPAH</a></li>
+          <li><a href="{{route('addTruk')}}">MONITORING<br>TRUK</a></li>
           <li><a href="#">RUTE TERCEPAT</a></li>
           <li><a href="#">LOG PENGAMBILAN<br>TEMPAT SAMPAH</a></li>
 

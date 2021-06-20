@@ -10,4 +10,19 @@ class PagesController extends Controller
     {
         return view('index');
     }
+
+    public function registration()
+    {
+        return view('registration');
+    }
+
+    public function addTempatSampah()
+    {
+        return view('addTempatSampah');
+    }
+
+    public function addTruk()
+    {
+        return view('addTruk');
+    }
 }

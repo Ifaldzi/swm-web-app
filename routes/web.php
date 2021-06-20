@@ -27,6 +27,10 @@ Route::post('/login',[AuthenticationController::class,'login'])->name('login');
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/index',[PagesController::class,'homePage'])->name('home');
+    Route::get('/registration',[AuthenticationController::class,'showFormRegistration'])->name('registration');
+    Route::post('/registration',[AuthenticationController::class,'registration'])->name('registration');
+    Route::get('/addTempatSampah',[PagesController::class,'addTempatSampah'])->name('addTempatSampah');
+    Route::get('/addTruk',[PagesController::class,'addTruk'])->name('addTruk');
     Route::get('/logout',[AuthenticationController::class,'logout'])->name('logout');
 
 });
