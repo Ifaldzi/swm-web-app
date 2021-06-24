@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\KendaraanPengangkutSampah;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class TrucksController extends Controller
 {
@@ -36,11 +37,11 @@ class TrucksController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+       $rules=[
             'device_name' => 'required|max:55|unique:kendaraan_pengangkut_sampah',
             'kapasitas_pengangkut_sampah' => 'required|numeric',
 
-        ]);
+        ];
 
         //custom validation error messages.
         $messages = [
@@ -49,6 +50,14 @@ class TrucksController extends Controller
             'kapasitas_pengangkut_sampah.required'     => 'Kapasitas truk wajib diisi',
             'kapasitas_pengangkut_sampah.numeric'     => 'Kapasitas truk hanya bisa diisi nilai numerik',
         ];
+        $validator=Validator::make($request->all(),$rules,$messages);
+        if($validator->fails())
+        {
+            return redirect()
+            ->back()
+            ->withErrors($validator)
+            ->withInput($request->all());
+        }
         KendaraanPengangkutSampah::create($request->all());
         return redirect()
                 ->intended(route('monitoring-truk'))

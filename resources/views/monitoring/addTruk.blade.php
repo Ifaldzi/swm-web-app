@@ -10,35 +10,6 @@
                 <form action="{{route('addTruk')}}" method="post">
                 @csrf
                 <div class="card-body">
-                    {{-- @if(session('errors'))
-                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                            Something it's wrong:
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">×</span>
-                            </button>
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif --}}
-
-                    {{-- @if (Session::has('success'))
-                        <div class="alert alert-success">
-                            {{ Session::get('success') }}
-                        </div>
-                    @endif --}}
-
-                    {{-- Error Alert --}}
-                    @if(session('error'))
-                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                            {{session('error')}}
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                    @endif
                     <div class="form-group m-2">
                         <label for="device_name" class="form-label">Nama Truk</label>
                         <input type="text" name="device_name" class="form-control shadow @error('device_name') is-invalid @enderror" placeholder="Nama Truk">
