@@ -13,10 +13,7 @@ class CreateAntaresTable extends Migration
      */
     public function up()
     {
-        Schema::create('antares', function (Blueprint $table) {
-            $table->id();
-            $table->string('nama_perangkat_antares')->unique();
-        });
+
     }
 
     /**

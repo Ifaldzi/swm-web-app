@@ -13,12 +13,7 @@ class AddForeignKeyToAntares extends Migration
      */
     public function up()
     {
-        Schema::table('antares', function (Blueprint $table) {
-            $table->engine = 'InnoDB';
-            $table->foreignId('id_tempat_sampah')->constrained('tempat_sampah')->onDelete('cascade');
-            $table->foreignId('id_truk')->constrained('kendaraan_pengangkut_sampah')->onDelete('cascade');
 
-        });
     }
 
     /**

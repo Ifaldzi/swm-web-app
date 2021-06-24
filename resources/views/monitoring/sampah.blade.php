@@ -26,5 +26,8 @@
                 @endfor
             </tbody>
         </table>
+        <div class="d-grid gap-2 col-6 mx-auto  ">
+            <a class="btn btn-primary" href="{{route('addTempatSampah')}}">Tambah Tempat Sampah</a>
+        </div>
     </div>
 @endsection
