@@ -33,7 +33,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/addTruk',[PagesController::class,'addTruk'])->name('addTruk');
     Route::get('/RuteTercepat',[PagesController::class,'RuteTercepat'])->name('RuteTercepat');
     Route::get('/LogSampah',[PagesController::class,'LogSampah'])->name('LogSampah');
-    Route::get('/logout',[AuthenticationController::class,'logout'])->name('logout');
+    Route::post('/logout',[AuthenticationController::class,'logout'])->name('logout');
     Route::get('/monitoring-sampah', function () {
         return view('monitoring/sampah');
     })->name('monitoring-sampah');
