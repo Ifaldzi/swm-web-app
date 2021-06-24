@@ -13,10 +13,7 @@ class AddForeignKeyToKendaraanPengangkutSampah extends Migration
      */
     public function up()
     {
-        Schema::table('kendaraan_pengangkut_sampah', function (Blueprint $table) {
-            $table->engine = 'InnoDB';
-            $table->foreignId('id_antares')->constrained('antares')->onDelete('cascade');
-        });
+
     }
 
     /**

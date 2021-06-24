@@ -17,7 +17,7 @@ class AddForeignKeyToTempatSampah extends Migration
             $table->engine = 'InnoDB';
             $table->foreignId('id_administrator')->constrained('administrator')->onDelete('cascade');
             $table->foreignId('id_truk')->constrained('kendaraan_pengangkut_sampah')->onDelete('cascade');
-            $table->foreignId('id_antares')->constrained('antares')->onDelete('cascade');
+
         });
     }
 

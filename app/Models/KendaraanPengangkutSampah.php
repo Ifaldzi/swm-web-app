@@ -9,7 +9,10 @@ class KendaraanPengangkutSampah extends Model
 {
     protected $table = 'kendaraan_pengangkut_sampah';
     use HasFactory;
+    public $timestamps = false;
+
     protected $fillable = [
+        'device_name',
         'kapasitas_pengangkut_sampah',
     ];
 
@@ -26,10 +29,5 @@ class KendaraanPengangkutSampah extends Model
     public function tempatSampah()
     {
         return $this->hasMany(TempatSampah::class);
-    }
-
-    public function antares()
-    {
-        return $this->hasOne(Antares::class);
     }
 }
