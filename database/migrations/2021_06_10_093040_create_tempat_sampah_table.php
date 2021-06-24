@@ -15,8 +15,9 @@ class CreateTempatSampahTable extends Migration
     {
         Schema::create('tempat_sampah', function (Blueprint $table) {
             $table->id();
-            $table->string('volume_tempat_sampah');
-            $table->string('volume_tinggi_sampah');
+            $table->float('volume_tempat_sampah');
+            $table->float('tinggi_tempat_sampah');
+            $table->string('device_name');
         });
     }
 

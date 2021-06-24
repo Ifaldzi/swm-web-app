@@ -15,7 +15,8 @@ class CreateKendaraanPengangkutSampahTable extends Migration
     {
         Schema::create('kendaraan_pengangkut_sampah', function (Blueprint $table) {
             $table->id();
-            $table->string('kapasitas_pengangkut_sampah');
+            $table->string('device_name');
+            $table->float('kapasitas_pengangkut_sampah');
         });
     }
 

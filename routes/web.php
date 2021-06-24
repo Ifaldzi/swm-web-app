@@ -2,7 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthenticationController;
+use App\Http\Controllers\BinsController;
 use App\Http\Controllers\PagesController;
+use App\Http\Controllers\TrucksController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,18 +29,25 @@ Route::post('/login',[AuthenticationController::class,'login'])->name('login');
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/index',[PagesController::class,'homePage'])->name('home');
-    Route::get('/registration',[AuthenticationController::class,'showFormRegistration'])->name('registration');
-    Route::post('/registration',[AuthenticationController::class,'registration'])->name('registration');
-    Route::get('/addTempatSampah',[PagesController::class,'addTempatSampah'])->name('addTempatSampah');
-    Route::get('/addTruk',[PagesController::class,'addTruk'])->name('addTruk');
+
     Route::get('/RuteTercepat',[PagesController::class,'RuteTercepat'])->name('RuteTercepat');
     Route::get('/LogSampah',[PagesController::class,'LogSampah'])->name('LogSampah');
-    Route::post('/logout',[AuthenticationController::class,'logout'])->name('logout');
-    Route::get('/monitoring-sampah', function () {
-        return view('monitoring/sampah');
-    })->name('monitoring-sampah');
 
-    Route::get('/monitoring-truk', function () {
-        return view('monitoring/truk');
-    })->name('monitoring-truk');
+    //Janitor Registration
+    Route::get('/registration',[AuthenticationController::class,'showFormRegistration'])->name('registration');
+    Route::post('/registration',[AuthenticationController::class,'registration'])->name('registration');
+
+    //Trucks monitoring
+    Route::get('/monitoring-truk',[TrucksController::class,'index'])->name('monitoring-truk');
+    Route::get('/monitoring-truk/addTruk',[TrucksController::class,'create'])->name('addTruk');
+    Route::post('/monitoring-truk/addTruk',[TrucksController::class,'store'])->name('addTruk');
+
+    // Bins monitoring
+    Route::get('/monitoring-sampah',[BinsController::class,'index'])->name('monitoring-sampah');
+    Route::get('/monitoring-sampah/addTempatSampah',[BinsController::class,'create'])->name('addTempatSampah');
+    Route::post('/monitoring-sampah/addTempatSampah',[BinsController::class,'create'])->name('addTempatSampah');
+
+
+    Route::post('/logout',[AuthenticationController::class,'logout'])->name('logout');
+
 });

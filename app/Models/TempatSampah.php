@@ -10,6 +10,7 @@ class TempatSampah extends Model
     protected $table = 'tempat_sampah';
     use HasFactory;
     protected $fillable = [
+        'device_name',
         'volume_tempat_sampah',
         'tinggi_tempat_sampah',
     ];
@@ -32,10 +33,5 @@ class TempatSampah extends Model
     public function lokasi()
     {
         return $this->hasOne(Lokasi::class);
-    }
-
-    public function antares()
-    {
-        return $this->hasOne(Antares::class);
     }
 }

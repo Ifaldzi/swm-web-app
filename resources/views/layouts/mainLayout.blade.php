@@ -64,14 +64,13 @@
               <i class=" pe-5 bi bi-person-circle" style="font-size: 2em;"></i>
             </a>
             <ul class="dropdown-menu">
-              <li><p class="dropdown-item">Admin</p></li>
+              <li class="text-center">Administrator</li>
               <li><hr class="dropdown-divider"></li>
-              <li>
-                <form action="{{ route('logout') }}" method="POST">
-                    @csrf
-                    <button type="submit" class="btn btn-link text-decoration-none text-dark dropdown-item">Logout</button>
-                </form>
-              </li>
+              <form action="{{route('logout')}}" method="post">
+                @csrf
+                <button class = "dropdown-item text-center" type = "submit" name = "logout">Logout</button>
+                {{-- <li><a class="dropdown-item " href="#">Logout</a></li> --}}
+              </form>
             </ul>
           </li>
         </ul>

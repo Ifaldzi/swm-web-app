@@ -10,19 +10,27 @@
             <tr>
                 <th scope="col">Truk</th>
                 <th scope="col">Nomor Truk</th>
+                <th scope="col">Nama Truk</th>
                 <th scope="col">Area</th>
+                <th scope="col">Kapasitas</th>
             </tr>
             </thead>
             <tbody>
-                @for ($i=0;$i<3;$i++)
-                    <tr class="align-middle">
-                    <th scope="row"><img src="assets/img/icon/trukSampah.jpeg" alt=""class="img-thumbnail"></th>
-                    <td >{{$i+1}}</td>
-                    <td>Subang</td>
+                @foreach ($trucks as $truck )
+
+                    <tr class="align-middle text-center">
+                        <th scope="row"><img src="assets/img/icon/trukSampah.jpeg" alt=""class="img-thumbnail"></th>
+                        <td >{{$loop->iteration}}</td>
+                        <td >{{$truck->device_name}}</td>
+                        <td>Subang</td>
+                        <td>{{$truck->kapasitas_pengangkut_sampah}}</td>
                     </tr>
-                @endfor
+                @endforeach
             </tbody>
         </table>
+        <div class="d-grid gap-2 col-6 mx-auto  ">
+            <a class="btn btn-primary" href="{{route('addTruk')}}">Tambah Truk</a>
+        </div>
     </div>
 @endsection
 
