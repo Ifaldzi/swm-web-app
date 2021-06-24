@@ -52,7 +52,7 @@
       <nav id="navbar" class="navbar order-last order-lg-0 navbar-dark">
         <ul class = "me-1 text-center">
           <li><a href="{{route('home')}}" class="active">Home</a></li>
-          <li><a href="#">REGISTRASI<br>PETUGAS</a></li>
+          <li><a href="{{route('registration')}}">REGISTRASI<br>PETUGAS</a></li>
 
           <li><a href="{{route('RuteTercepat')}}" >RUTE TERCEPAT</a></li>
           <li><a href="{{route('LogSampah')}}">LOG PENGAMBILAN<br>TEMPAT SAMPAH</a></li>
