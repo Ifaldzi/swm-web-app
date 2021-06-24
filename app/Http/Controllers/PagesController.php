@@ -25,4 +25,13 @@ class PagesController extends Controller
     {
         return view('addTruk');
     }
+    public function RuteTercepat()
+    {
+        return view('RuteTercepat');
+    }
+
+    public function LogSampah()
+    {
+        return view('LogSampah');
+    }
 }

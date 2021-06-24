@@ -31,6 +31,14 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/registration',[AuthenticationController::class,'registration'])->name('registration');
     Route::get('/addTempatSampah',[PagesController::class,'addTempatSampah'])->name('addTempatSampah');
     Route::get('/addTruk',[PagesController::class,'addTruk'])->name('addTruk');
+    Route::get('/RuteTercepat',[PagesController::class,'RuteTercepat'])->name('RuteTercepat');
+    Route::get('/LogSampah',[PagesController::class,'LogSampah'])->name('LogSampah');
     Route::get('/logout',[AuthenticationController::class,'logout'])->name('logout');
+    Route::get('/monitoring-sampah', function () {
+        return view('monitoring/sampah');
+    })->name('monitoring-sampah');
 
+    Route::get('/monitoring-truk', function () {
+        return view('monitoring/truk');
+    })->name('monitoring-truk');
 });
