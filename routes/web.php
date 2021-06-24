@@ -45,7 +45,7 @@ Route::group(['middleware' => 'auth'], function () {
     // Bins monitoring
     Route::get('/monitoring-sampah',[BinsController::class,'index'])->name('monitoring-sampah');
     Route::get('/monitoring-sampah/addTempatSampah',[BinsController::class,'create'])->name('addTempatSampah');
-    Route::post('/monitoring-sampah/addTempatSampah',[BinsController::class,'create'])->name('addTempatSampah');
+    Route::post('/monitoring-sampah/addTempatSampah',[BinsController::class,'store'])->name('addTempatSampah');
 
 
     Route::post('/logout',[AuthenticationController::class,'logout'])->name('logout');

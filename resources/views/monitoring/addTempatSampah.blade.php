@@ -7,7 +7,7 @@
                 <div class="header mx-auto">
                     <h3 class="fw-bold text-center pt-4 px-4">Tambah Tempat Sampah</h3>
                 </div>
-                <form action="{{route('addTempatSampah')}}" method="post">
+                <form action="{{route('addTempatSampah')}}" method="POST">
                 @csrf
                 <div class="card-body">
                     {{-- @if(session('errors'))
@@ -40,8 +40,13 @@
                         </div>
                     @endif
                     <div class="form-group m-2">
-                        <div class="dropdown">
-                            <label for="id_truk" class="form-label">ID Truk</label><br>
+                        <label for="id_truk" class="form-label">ID Truk</label><br>
+                        <select name="id_truk" id="id_truk" class="form-select">
+                            @foreach ($trucks as $truck)
+                                <option value="{{ $truck->id }}" class="dropdown-item">{{ $truck->id }}</option>
+                            @endforeach
+                        </select>
+                        {{-- <div class="dropdown">
                             <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
                             ID Truk
                             </button>
@@ -49,7 +54,7 @@
                                 <a class="dropdown-item" href="#">Truk 1</a>
                                 <a class="dropdown-item" href="#">Truk 2</a>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                     <div class="form-group m-2">
                         <label for="nama_tempat_sampah" class="form-label">Nama Tempat Sampah</label>

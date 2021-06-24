@@ -8,11 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class TempatSampah extends Model
 {
     protected $table = 'tempat_sampah';
+
+    public $timestamps = false;
+
     use HasFactory;
     protected $fillable = [
         'device_name',
         'volume_tempat_sampah',
         'tinggi_tempat_sampah',
+        'id_truk',
+        'id_administrator'
     ];
 
     public function logPengambilanSampah()
