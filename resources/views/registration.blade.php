@@ -27,7 +27,7 @@
                     </div>
                     <div class="form-group m-2">
                         <label for="nama" class="form-label">Nama</label>
-                        <input type="text" name="nama" class="form-control shadow @error('nama') is-invalid @enderror" placeholder="Nama">
+                        <input type="text" name="nama" value="{{ old('nama') }}"class="form-control shadow @error('nama') is-invalid @enderror" placeholder="Nama">
                         @error('nama')
                             <div class="invalid-feedback">
                                 {{$message}}
@@ -56,7 +56,7 @@
                     </div>
                     <div class="form-group m-2">
                         <label for="alamat" class="form-label">Alamat</label>
-                        <input type="text" name="alamat" class="form-control shadow @error('alamat') is-invalid @enderror" placeholder="Alamat">
+                        <input type="text" name="alamat" value="{{ old('alamat') }}" class="form-control shadow @error('alamat') is-invalid @enderror" placeholder="Alamat">
                         @error('alamat')
                             <div class="invalid-feedback">
                                 {{$message}}
@@ -65,7 +65,7 @@
                     </div>
                     <div class="form-group m-2">
                         <label for="no_telp" class="form-label">Nomor Telepon</label>
-                        <input type="text" name="no_telp" class="form-control shadow @error('no_telp') is-invalid @enderror" placeholder="Nomor Telepon">
+                        <input type="text" name="no_telp" value="{{ old('no_telp') }}" class="form-control shadow @error('no_telp') is-invalid @enderror" placeholder="Nomor Telepon">
                         @error('no_telp')
                             <div class="invalid-feedback">
                                 {{$message}}
@@ -74,7 +74,7 @@
                     </div>
                     <div class="form-group m-2">
                         <label for="username_petugas" class="form-label">Username</label>
-                        <input type="text" name="username_petugas" class="form-control shadow @error('username_petugas') is-invalid @enderror" placeholder="Username">
+                        <input type="text" name="username_petugas" value="{{ old('username_petugas') }}" class="form-control shadow @error('username_petugas') is-invalid @enderror" placeholder="Username">
                         @error('username_petugas')
                             <div class="invalid-feedback">
                                 {{$message}}

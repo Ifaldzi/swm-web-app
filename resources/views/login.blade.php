@@ -14,7 +14,7 @@
                 @csrf
                 <div class="card-body">
                     <div class="form-group p-2 m-2">
-                        <input type="text" name="username" class="form-control shadow @error('username') is-invalid @enderror" placeholder="Username">
+                        <input type="text" name="username" value="{{ old('username') }}"class="form-control shadow @error('username') is-invalid @enderror" placeholder="Username">
                         @error('username')
                             <div class="invalid-feedback">
                                 {{$message}}

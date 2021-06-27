@@ -9,6 +9,7 @@ use App\Models\DataDiriPetugas;
 use App\Models\PetugasKebersihan;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Arr;
 
 
 class AuthenticationController extends Controller
@@ -23,22 +24,16 @@ class AuthenticationController extends Controller
 
     public function login(Request $request)
     {
-        $validator=$this->validator($request);
-        if($validator->fails())
-        {
-            return redirect()
-            ->back()
-            ->withErrors($validator)
-            ->withInput($request->all());
-        }
         if(Auth::attempt($request->only('username','password'))){
             //Authentication passed...
             return redirect()
-                ->intended(route('home'))
-                ->with('status','You are Logged in as Admin!');
+            ->intended(route('home'))
+            ->with('status','You are Logged in as Admin!');
         }
-        //Authentication failed...
-        return $this->loginFailed();
+        else{
+            //Authentication failed...
+            return $this->loginFailed($request);
+        }
     }
 
     private function validator(Request $request)
@@ -46,7 +41,7 @@ class AuthenticationController extends Controller
         //validation rules.
         $rules = [
             'username'    => 'required|exists:administrator',
-            'password' => 'required|min:4|max:255',
+            'password'    => 'required|exists:administrator,password',
 
             'username_petugas'    => 'required|unique:petugas_kebersihan',
             'password_petugas' => 'required|min:4|max:255',
@@ -62,8 +57,7 @@ class AuthenticationController extends Controller
             'username.required'     => 'Username wajib diisi',
             'username.exists'       => 'Username tersebut tidak ada',
             'password.required'     => 'Password wajib diisi',
-            'password.min'     => 'Password minimal 4 karakter',
-            'password.max'     => 'Password maksimal 255 karakter',
+            'password.exists'       => 'Password salah',
 
             'username_petugas.required'     => 'Username wajib diisi',
             'username_petugas.unique'     => 'Username tersebut telah digunakan',
@@ -82,15 +76,24 @@ class AuthenticationController extends Controller
             'alamat.max'     => 'Alamat maksimal 255 karakter',
         ];
 
+        $password = Hash::make($request->password);
+        $input = $request->all();
+        Arr::set($input, 'password', $password);
+
         //validate the request.
-        return Validator::make($request->all(), $rules, $messages);
+        return Validator::make($input, $rules, $messages);
     }
 
-    private function loginFailed(){
-        return redirect()
+    private function loginFailed(Request $request){
+        $validator=$this->validator($request);
+
+        if($validator->fails())
+        {
+            return redirect()
             ->back()
-            ->withInput()
-            ->with('error','Login failed, please try again!');
+            ->withErrors($validator)
+            ->withInput($request->all());
+        }
     }
 
     public function showFormRegistration()
@@ -126,7 +129,6 @@ class AuthenticationController extends Controller
             'id_petugas' => $petugasKebersihan->id,
         ]);
         return redirect('/registration');
-
     }
 
     public function logout(){
