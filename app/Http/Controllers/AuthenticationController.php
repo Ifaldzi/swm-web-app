@@ -133,6 +133,6 @@ class AuthenticationController extends Controller
 
     public function logout(){
         Auth::logout();
-        return redirect()->route('login')->with('status','Admin has been logged out!');
+        return redirect()->route('home')->with('status','Admin has been logged out!');
     }
 }

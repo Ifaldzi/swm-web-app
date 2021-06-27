@@ -21,13 +21,17 @@
                     <th scope="row"><img src="assets/img/icon/tongSampah.jpeg" alt=""class="img-thumbnail"></th>
                     <td >65%</td>
                     <td>Subang</td>
-                    <td><a href="#" class="btn btn-primary">Send</a></td>
+                    @if (Auth::check())
+                        <td><a href="#" class="btn btn-primary">Send</a></td>
+                    @endif
                     </tr>
                 @endfor
             </tbody>
         </table>
-        <div class="d-grid gap-2 col-6 mx-auto  ">
-            <a class="btn btn-primary" href="{{route('addTempatSampah')}}">Tambah Tempat Sampah</a>
-        </div>
+        @if (Auth::check())
+            <div class="d-grid gap-2 col-6 mx-auto  ">
+                <a class="btn btn-primary" href="{{route('addTempatSampah')}}">Tambah Tempat Sampah</a>
+            </div>
+        @endif
     </div>
 @endsection
