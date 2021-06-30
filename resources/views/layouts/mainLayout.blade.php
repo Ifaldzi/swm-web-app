@@ -51,14 +51,14 @@
 
       <nav id="navbar" class="navbar order-last order-lg-0 navbar-dark">
         <ul class = "me-1 text-center">
-          <li><a href="{{route('home')}}" class="active">Home</a></li>
-          <li><a href="{{route('registration')}}">REGISTRASI<br>PETUGAS</a></li>
+          <li><a href="{{route('home')}}" class="{{  Route::is('home') ? 'active' : '' }}">Home</a></li>
+          <li><a href="{{route('registration')}}" class = "{{  Route::is('registration') ? 'active' : ''  }}">REGISTRASI<br>PETUGAS</a></li>
 
-          <li><a href="{{route('RuteTercepat')}}" >RUTE TERCEPAT</a></li>
-          <li><a href="{{route('LogSampah')}}">LOG PENGAMBILAN<br>TEMPAT SAMPAH</a></li>
+          <li><a href="{{route('RuteTercepat')}}" class="{{  Route::is('RuteTercepat') ? 'active' : '' }}">RUTE TERCEPAT</a></li>
+          <li><a href="{{route('LogSampah')}}"class="{{  Route::is('LogSampah') ? 'active' : '' }}">LOG PENGAMBILAN<br>TEMPAT SAMPAH</a></li>
 
-          <li><a href="{{route('monitoring-sampah')}}">MONITORING<br>TEMPAT SAMPAH</a></li>
-          <li><a href="{{route('monitoring-truk')}}">MONITORING<br>TRUK</a></li>
+          <li><a href="{{route('monitoring-sampah')}}" class="{{  Route::is('monitoring-sampah') ? 'active' : '' }}">MONITORING<br>TEMPAT SAMPAH</a></li>
+          <li><a href="{{route('monitoring-truk')}}"class="{{  Route::is('monitoring-truk') ? 'active' : '' }}">MONITORING<br>TRUK</a></li>
           <li class="dropdown me-5">
             <a  href="#" role="button" class="nav-link dropdown" id="dropdownLogout" data-bs-toggle="dropdown" aria-expanded="false">
               <i class=" pe-5 bi bi-person-circle" style="font-size: 2em;"></i>

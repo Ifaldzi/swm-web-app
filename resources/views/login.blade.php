@@ -13,40 +13,21 @@
                 <form action="{{route('login')}}" method="post">
                 @csrf
                 <div class="card-body">
-                    {{-- @if(session('errors'))
-                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                            Something it's wrong:
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">×</span>
-                            </button>
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif --}}
-
-                    {{-- @if (Session::has('success'))
-                        <div class="alert alert-success">
-                            {{ Session::get('success') }}
-                        </div>
-                    @endif --}}
-
-                    {{-- Error Alert --}}
-                    @if(session('error'))
-                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                            {{session('error')}}
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                    @endif
                     <div class="form-group p-2 m-2">
-                        <input type="text" name="username" class="form-control shadow" placeholder="Username">
+                        <input type="text" name="username" value="{{ old('username') }}"class="form-control shadow @error('username') is-invalid @enderror" placeholder="Username">
+                        @error('username')
+                            <div class="invalid-feedback">
+                                {{$message}}
+                            </div>
+                        @enderror
                     </div>
                     <div class="form-group p-2 m-2">
-                        <input type="password" name="password" class="form-control shadow" placeholder="Password">
+                        <input type="password" name="password" class="form-control shadow @error('password') is-invalid @enderror" placeholder="Password">
+                        @error('password')
+                            <div class="invalid-feedback">
+                                {{$message}}
+                            </div>
+                        @enderror
                     </div>
                     <div class="mx-auto p-4 w-75">
                         <button type="submit" class="shadow fw-bold btn btn-warning btn-block ">Login</button>
