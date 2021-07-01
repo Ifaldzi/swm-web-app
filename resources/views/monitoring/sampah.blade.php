@@ -36,7 +36,9 @@
                         @endif
                     </td>
                     <td>{{ $bin->lokasi->alamat }}</td>
-                    <td><a href="#" class="btn btn-primary">Send</a></td>
+                    @auth
+                        <td><a href="#" class="btn btn-primary">Send</a></td>
+                    @endauth
                 </tr>
                 @endforeach
             </tbody>
