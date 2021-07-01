@@ -21,7 +21,6 @@ class AjaxController extends Controller
                 'volume' => $response
             ]);
         }
-        // ddd($data);
         return response()->json($data);
     }
 

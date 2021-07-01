@@ -16,7 +16,7 @@
             <tbody>
                 @foreach ($bins as $bin)
                 <tr class="align-middle">
-                    <th scope="row"><img src="assets/img/icon/tongSampah.jpeg" alt=""class="img-thumbnail"></th>
+                    <th scope="row"><img src="assets/img/icon/tongSampah.jpeg" alt=""class="img-thumbnail" onclick="goToLocation({{ json_encode($bin->lokasi) }})"></th>
                     <td >
                         @php
                             $response = $bin->calculateVolume();

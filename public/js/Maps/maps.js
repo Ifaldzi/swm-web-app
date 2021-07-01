@@ -34,3 +34,12 @@ $.ajax({
         }
     }
 })
+
+function goToLocation(location) {
+    var longitude = location.longitude;
+    var latitude = location.latitude;
+    console.log(latitude, longitude);
+    var center = {lng: longitude, lat:latitude};
+
+    map.getViewModel().setLookAtData({position: center, zoom: 14}, true);
+}
