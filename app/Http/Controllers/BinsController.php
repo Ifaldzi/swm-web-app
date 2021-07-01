@@ -18,7 +18,8 @@ class BinsController extends Controller
      */
     public function index()
     {
-        return view('monitoring.sampah');
+        $bins = TempatSampah::all();
+        return view('monitoring.sampah', compact('bins'));
     }
 
     /**

@@ -14,14 +14,23 @@
                 </tr>
             </thead>
             <tbody>
-                @for ($i=0;$i<3;$i++)
+                @foreach ($bins as $bin)
                 <tr class="align-middle">
                     <th scope="row"><img src="assets/img/icon/tongSampah.jpeg" alt=""class="img-thumbnail"></th>
-                    <td >65%</td>
-                    <td>Subang</td>
+                    <td >
+                        @php
+                            $response = $bin->calculateVolume();
+                        @endphp
+                        @if ($response['code'] != "404")
+                            {{ $response['volume'] }} %
+                        @else
+                            {{ $response['status'] }}
+                        @endif
+                    </td>
+                    <td>{{ $bin->lokasi->alamat }}</td>
                     <td><a href="#" class="btn btn-primary">Send</a></td>
                 </tr>
-                @endfor
+                @endforeach
             </tbody>
         </table>
         <div class="d-grid gap-2 col-6 mx-auto  ">
@@ -37,6 +46,8 @@
     <script src="https://js.api.here.com/v3/3.1/mapsjs-ui.js" type="text/javascript" charset="utf-8"></script>
     <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-mapevents.js"></script>
     <link rel="stylesheet" type="text/css" href="https://js.api.here.com/v3/3.1/mapsjs-ui.css" />
+
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
     <script src="{{ asset('js/Maps/maps.js') }}"></script>
 @endsection

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AjaxController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthenticationController;
 use App\Http\Controllers\BinsController;
@@ -50,4 +51,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::post('/logout',[AuthenticationController::class,'logout'])->name('logout');
 
+    // Ajax
+    Route::get('/ajax/tempat-sampah', [AjaxController::class, 'getAllBinsData'])->name('getAllBinsData');
+    Route::get('/ajax/tempat-sampah-location', [AjaxController::class, 'getAllBinsLocation'])->name('getAllBinsLocation');
 });
