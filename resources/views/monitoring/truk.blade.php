@@ -4,9 +4,8 @@
     <div class="col-md-5 offset-md-0 mt-4">
         <h1 class="fw-bold pt-5 px-6">Monitoring Truk</h1>
     </div>
-    <div class="p-3 border bg-light">
-        <img src="assets/img/icon/maps.png" class="img-fluid mx-auto d-block" alt="..." width="65%">
-    </div>
+    <div class="p-3 border bg-light" id="map-container" style="height: 500px"></div>
+
 @endsection
 
 @section('table-content')
@@ -43,4 +42,15 @@
             </div>
         @endif
     </div>
+@endsection
+
+@section('js')
+    <!-- Here Maps lib -->
+    <script src="https://js.api.here.com/v3/3.1/mapsjs-core.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://js.api.here.com/v3/3.1/mapsjs-service.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://js.api.here.com/v3/3.1/mapsjs-ui.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-mapevents.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://js.api.here.com/v3/3.1/mapsjs-ui.css" />
+
+    <script src="{{ asset('js/Maps/maps.js') }}"></script>
 @endsection
