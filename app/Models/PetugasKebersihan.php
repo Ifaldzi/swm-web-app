@@ -12,6 +12,8 @@ class PetugasKebersihan extends Model
     protected $fillable = [
         'username_petugas',
         'password_petugas',
+        'id_administrator',
+        'id_truk',
     ];
 
     public function dataDiriPetugas()

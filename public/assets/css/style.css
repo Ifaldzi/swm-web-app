@@ -43,6 +43,10 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 4px;
   transition: all 0.4s;
 }
+.modal-backdrop {
+    z-index: 0;
+    /* display: relative; */
+  }
 
 .back-to-top i {
   font-size: 28px;
@@ -197,10 +201,10 @@ h1, h2, h3, h4, h5, h6 {
   transition: 0.3s;
   border-top: 2px solid #1bbd36;
 }
-/* 
+/*
 .navbar .dropdown ul li {
   min-width: 200px;
-} 
+}
 */
 
 .navbar .dropdown ul a {

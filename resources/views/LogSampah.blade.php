@@ -28,12 +28,14 @@
                                             <td >11:10</td>
                                             <td >xxxxx</td>
                                             <td >Ciwaruga</td>
-                                            <th scope="row">
-                                            <div class="list-group">
-                                                    <input class="form-check-input me-1" type="checkbox" value="">
-                                            </div>
-                                            </th>
-                                            <td><a href="#" class="btn btn-danger">Delete</a></td>
+                                            @if (Auth::check())
+                                                <th scope="row">
+                                                <div class="list-group">
+                                                        <input class="form-check-input me-1" type="checkbox" value="">
+                                                </div>
+                                                </th>
+                                                <td><a href="#" class="btn btn-danger">Delete</a></td>
+                                            @endif
                                         </tr>
                                     @endfor
                                 </tbody>

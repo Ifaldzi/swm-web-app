@@ -1,9 +1,17 @@
 @extends('layouts/monitoring')
 @section('maps-content')
+
+    <div class="col-md-5 offset-md-0 mt-4">
+        <h1 class="fw-bold pt-5 px-6">Monitoring Truk</h1>
+    </div>
     <div class="p-3 border bg-light" id="map-container" style="height: 500px"></div>
+
 @endsection
 
 @section('table-content')
+    <div class="col-md-5 offset-md-0 mt-4">
+        <h1 class="fw-bold pt-5 px-6 text-white">Monitoring</h1>
+    </div>
     <div class="p-3 border bg-light">
         <table class="table">
             <thead class="table-secondary">
@@ -28,9 +36,11 @@
                 @endforeach
             </tbody>
         </table>
-        <div class="d-grid gap-2 col-6 mx-auto  ">
-            <a class="btn btn-primary" href="{{route('addTruk')}}">Tambah Truk</a>
-        </div>
+        @if (Auth::check())
+            <div class="d-grid gap-2 col-6 mx-auto  ">
+                <a class="btn btn-primary" href="{{route('addTruk')}}">Tambah Truk</a>
+            </div>
+        @endif
     </div>
 @endsection
 
