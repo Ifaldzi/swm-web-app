@@ -24,9 +24,7 @@ $.ajax({
     url: '/ajax/tempat-sampah-location',
     success: function(data) {
         var bin = data;
-        console.log(data[0].location.longitude);
         for(var index in data) {
-            console.log(data[index].location.longitude);
             var coords = {lng: data[index].location.longitude, lat: data[index].location.latitude};
             var icon = new H.map.Icon("assets/img/icon/Tempat Sampah.png", {size: {w: 75, h: 75}});
             var marker = new H.map.Marker(coords, {icon: icon});
@@ -38,8 +36,9 @@ $.ajax({
 function goToLocation(location) {
     var longitude = location.longitude;
     var latitude = location.latitude;
-    console.log(latitude, longitude);
     var center = {lng: longitude, lat:latitude};
 
-    map.getViewModel().setLookAtData({position: center, zoom: 14}, true);
+    map.getViewModel().setLookAtData({position: center, zoom: 16}, true);
 }
+
+// setTimeout("location.reload(true)", 3000);

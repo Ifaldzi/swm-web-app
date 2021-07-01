@@ -44,7 +44,7 @@ class TempatSampah extends Model
     {
         $applicationName = "SmartWaste";
         $deviceName = $this->device_name;
-        $key = "c268c640cf418401:d57471191a76e4a3";
+        $key = env('ANTARES_KEY');
 
         $header = array(
             "X-M2M-Origin: {$key}",
