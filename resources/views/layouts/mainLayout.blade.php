@@ -52,27 +52,58 @@
       <nav id="navbar" class="navbar order-last order-lg-0 navbar-dark">
         <ul class = "me-1 text-center">
           <li><a href="{{route('home')}}" class="{{  Route::is('home') ? 'active' : '' }}">Home</a></li>
-          <li><a href="{{route('registration')}}" class = "{{  Route::is('registration') ? 'active' : ''  }}">REGISTRASI<br>PETUGAS</a></li>
+          @if (Auth::check())
+            <li><a href="{{route('registration')}}" class = "{{  Route::is('registration') ? 'active' : ''  }}">REGISTRASI<br>PETUGAS</a></li>
+          @else
+            <!-- Nav trigger modal -->
+            <li><a href="#" class = "{{  Route::is('registration') ? 'active' : ''  }}"data-bs-toggle="modal" data-bs-target="#staticBackdrop">REGISTRASI<br>PETUGAS</a></li>
+            <!-- Modal -->
+            <div class="modal fade " id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Registrasi Petugas Kebersihan</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        Halaman ini hanya bisa diakses oleh administrator
+                    <h5>Silahkan login sebagai administrator terlebih dahulu!</h5>
+                    </div>
+                    <div class="modal-footer">
+                        <form action="{{route('login')}}" method="get">
+                            @csrf
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary mx-auto">Login Administrator</button>
+                        </form>
+
+                    </div>
+                </div>
+                </div>
+            </div>
+          @endif
+
 
           <li><a href="{{route('RuteTercepat')}}" class="{{  Route::is('RuteTercepat') ? 'active' : '' }}">RUTE TERCEPAT</a></li>
           <li><a href="{{route('LogSampah')}}"class="{{  Route::is('LogSampah') ? 'active' : '' }}">LOG PENGAMBILAN<br>TEMPAT SAMPAH</a></li>
 
           <li><a href="{{route('monitoring-sampah')}}" class="{{  Route::is('monitoring-sampah') ? 'active' : '' }}">MONITORING<br>TEMPAT SAMPAH</a></li>
           <li><a href="{{route('monitoring-truk')}}"class="{{  Route::is('monitoring-truk') ? 'active' : '' }}">MONITORING<br>TRUK</a></li>
-          <li class="dropdown me-5">
-            <a  href="#" role="button" class="nav-link dropdown" id="dropdownLogout" data-bs-toggle="dropdown" aria-expanded="false">
-              <i class=" pe-5 bi bi-person-circle" style="font-size: 2em;"></i>
-            </a>
-            <ul class="dropdown-menu">
-              <li class="text-center">Administrator</li>
-              <li><hr class="dropdown-divider"></li>
-              <form action="{{route('logout')}}" method="post">
-                @csrf
-                <button class = "dropdown-item text-center" type = "submit" name = "logout">Logout</button>
-                {{-- <li><a class="dropdown-item " href="#">Logout</a></li> --}}
-              </form>
-            </ul>
-          </li>
+          @if (Auth::check())
+            <li class="dropdown me-5">
+                <a  href="#" role="button" class="nav-link dropdown" id="dropdownLogout" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class=" pe-5 bi bi-person-circle" style="font-size: 2em;"></i>
+                </a>
+                <ul class="dropdown-menu">
+                <li class="text-center">Administrator</li>
+                <li><hr class="dropdown-divider"></li>
+                <form action="{{route('logout')}}" method="post">
+                    @csrf
+                    <button class = "dropdown-item text-center" type = "submit" name = "logout">Logout</button>
+                    {{-- <li><a class="dropdown-item " href="#">Logout</a></li> --}}
+                </form>
+                </ul>
+            </li>
+          @endif
         </ul>
         <div class="d-flex justif-content-end me-5">
         <i class="bi bi-list mobile-nav-toggle" style="font-size: 2.5em;  color: #fff;"></i>

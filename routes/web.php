@@ -23,31 +23,43 @@ use App\Http\Controllers\TrucksController;
 
 
 
-Route::get('/',[AuthenticationController::class,'showFormLogin'])->name('login');
+//Login admin
+Route::get('/admin',[AuthenticationController::class,'showFormLogin'])->name('login');
 Route::get('/login',[AuthenticationController::class,'showFormLogin'])->name('login');
 Route::post('/login',[AuthenticationController::class,'login'])->name('login');
 
-Route::group(['middleware' => 'auth'], function () {
-    Route::get('/index',[PagesController::class,'homePage'])->name('home');
+//Home page
+Route::get('/index',[PagesController::class,'homePage'])->name('home');
+Route::get('/',[PagesController::class,'homePage'])->name('home');
 
-    Route::get('/RuteTercepat',[PagesController::class,'RuteTercepat'])->name('RuteTercepat');
-    Route::get('/LogSampah',[PagesController::class,'LogSampah'])->name('LogSampah');
+//Trucks monitoring
+Route::get('/monitoring-truk',[TrucksController::class,'index'])->name('monitoring-truk');
+
+// Bins monitoring
+Route::get('/monitoring-sampah',[BinsController::class,'index'])->name('monitoring-sampah');
+
+//Log
+Route::get('/LogSampah',[PagesController::class,'LogSampah'])->name('LogSampah');
+
+//Fastest track
+Route::get('/RuteTercepat',[PagesController::class,'RuteTercepat'])->name('RuteTercepat');
+
+
+Route::group(['middleware' => 'auth'], function () {
 
     //Janitor Registration
     Route::get('/registration',[AuthenticationController::class,'showFormRegistration'])->name('registration');
     Route::post('/registration',[AuthenticationController::class,'registration'])->name('registration');
 
-    //Trucks monitoring
-    Route::get('/monitoring-truk',[TrucksController::class,'index'])->name('monitoring-truk');
+    //Adding new truck
     Route::get('/monitoring-truk/addTruk',[TrucksController::class,'create'])->name('addTruk');
     Route::post('/monitoring-truk/addTruk',[TrucksController::class,'store'])->name('addTruk');
 
-    // Bins monitoring
-    Route::get('/monitoring-sampah',[BinsController::class,'index'])->name('monitoring-sampah');
+    //Adding new bin
     Route::get('/monitoring-sampah/addTempatSampah',[BinsController::class,'create'])->name('addTempatSampah');
     Route::post('/monitoring-sampah/addTempatSampah',[BinsController::class,'create'])->name('addTempatSampah');
 
-
+    //Logout
     Route::post('/logout',[AuthenticationController::class,'logout'])->name('logout');
 
 });
