@@ -70,7 +70,7 @@ class TempatSampah extends Model
         if ($response === false)
                 $response = curl_error($curl);
 
-        curl_close($curl);
+        // curl_close($curl);
 
         $httpCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
 

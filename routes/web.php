@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthenticationController;
 use App\Http\Controllers\BinsController;
 use App\Http\Controllers\PagesController;
+use App\Http\Controllers\PickUpLogController;
 use App\Http\Controllers\TrucksController;
 
 /*
@@ -40,7 +41,7 @@ Route::get('/monitoring-truk',[TrucksController::class,'index'])->name('monitori
 Route::get('/monitoring-sampah',[BinsController::class,'index'])->name('monitoring-sampah');
 
 //Log
-Route::get('/LogSampah',[PagesController::class,'LogSampah'])->name('LogSampah');
+Route::get('/LogSampah',[PickUpLogController::class,'index'])->name('LogSampah');
 
 //Fastest track
 Route::get('/RuteTercepat',[PagesController::class,'RuteTercepat'])->name('RuteTercepat');
