@@ -47,8 +47,8 @@ class BinsController extends Controller
             'volume_tempat_sampah' => 'required|numeric',
             'tinggi_tempat_sampah' => 'required|numeric',
             'alamat' => 'required',
-            'longitude' => 'required',
-            'latitude' => 'required',
+            'longitude' => 'required|numeric',
+            'latitude' => 'required|numeric',
         ];
 
         $messages = [
@@ -57,9 +57,13 @@ class BinsController extends Controller
             'nama_tempat_sampah.unique' => 'Nama tempat sampah sudah ada',
             'volume_tempat_sampah.required' => 'Volume tempat sampah wajib diisi',
             'tinggi_tempat_sampah.required' => 'Tinggi tempat sampah wajib diisi',
+            'volume_tempat_sampah.numeric' => 'Volume tempat sampah harus dalam numerik',
+            'tinggi_tempat_sampah.numeric' => 'Tinggi tempat sampah harus dalam numerik',
             'alamat.required' => 'Alamat wajib diisi',
             'longitude.required' => 'Longitude wajib diisi',
             'latitude.required' => 'Latitdue wajib diisi',
+            'longitude.numeric' => 'Longitude harus dalam numerik',
+            'latitude.numeric' => 'Latitude harus dalam numerik',
         ];
 
         $validator = Validator::make($request->all(), $rules, $messages);
