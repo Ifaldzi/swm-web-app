@@ -3,7 +3,7 @@
 @section('content')
     <div class="container pt-5 mb-5">
         <div class="col-md-4 offset-md-4 mt-5 mb-5">
-            <div class="card bg-light">
+            <div class="card bg-light pb-5">
                 <div class="header mx-auto">
                     <h3 class="fw-bold text-center pt-4 px-4">Tambah Truk</h3>
                 </div>

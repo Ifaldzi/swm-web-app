@@ -5,13 +5,15 @@
         <h1 class="fw-bold pt-5 px-6">Monitoring Truk</h1>
     </div>
     <div class="p-3 border bg-light">
-        <img src="assets/img/icon/maps.png" class="img-fluid mx-auto d-block" alt="..." width="65%">
+        <h1 class="align-middle text-center"> <br><br><br>COMING<br>SOON<br><br><br><br><br>
+
+        </h1>
     </div>
 @endsection
 
 @section('table-content')
     <div class="col-md-5 offset-md-0 mt-4">
-        <h1 class="fw-bold pt-5 px-6 text-white">Monitoring</h1>
+        <h1 class="fw-bold pt-5 px-6 text-white">Monitoring Truk</h1>
     </div>
     <div class="p-3 border bg-light">
         <table class="table">
