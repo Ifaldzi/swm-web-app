@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AjaxController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthenticationController;
 use App\Http\Controllers\BinsController;
@@ -44,6 +45,9 @@ Route::get('/LogSampah',[PagesController::class,'LogSampah'])->name('LogSampah')
 //Fastest track
 Route::get('/RuteTercepat',[PagesController::class,'RuteTercepat'])->name('RuteTercepat');
 
+// Ajax
+Route::get('/ajax/tempat-sampah', [AjaxController::class, 'getAllBinsData'])->name('getAllBinsData');
+Route::get('/ajax/tempat-sampah-location', [AjaxController::class, 'getAllBinsLocation'])->name('getAllBinsLocation');
 
 Route::group(['middleware' => 'auth'], function () {
 
@@ -57,7 +61,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     //Adding new bin
     Route::get('/monitoring-sampah/addTempatSampah',[BinsController::class,'create'])->name('addTempatSampah');
-    Route::post('/monitoring-sampah/addTempatSampah',[BinsController::class,'create'])->name('addTempatSampah');
+    Route::post('/monitoring-sampah/addTempatSampah',[BinsController::class,'store'])->name('addTempatSampah');
 
     //Logout
     Route::post('/logout',[AuthenticationController::class,'logout'])->name('logout');
