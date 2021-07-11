@@ -118,7 +118,7 @@
   <!-- end content -->
 
   <!-- ======= Footer ======= -->
-  <footer id="footer">
+  <footer class="footer-distributed" id="footer">
     <div class="container d-md-flex py-4">
 
       <div class="me-md-auto text-center text-md-start">
