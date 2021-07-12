@@ -39,6 +39,9 @@
                 @endforeach
             </tbody>
         </table>
+        <div class="d-flex justify-content-center">
+            {{ $trucks->links() }}
+        </div>
         @if (Auth::check())
             <div class="d-grid gap-2 col-6 mx-auto  ">
                 <a class="btn btn-primary" href="{{route('addTruk')}}">Tambah Truk</a>
