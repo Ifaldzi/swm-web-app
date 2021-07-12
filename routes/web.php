@@ -46,6 +46,9 @@ Route::get('/LogSampah',[TrashLogsController::class,'LogSampah'])->name('LogSamp
 //Fastest track
 Route::get('/RuteTercepat',[PagesController::class,'RuteTercepat'])->name('RuteTercepat');
 
+// Ajax
+Route::get('/ajax/tempat-sampah', [AjaxController::class, 'getAllBinsData'])->name('getAllBinsData');
+Route::get('/ajax/tempat-sampah-location', [AjaxController::class, 'getAllBinsLocation'])->name('getAllBinsLocation');
 
 Route::group(['middleware' => 'auth'], function () {
 
@@ -64,7 +67,4 @@ Route::group(['middleware' => 'auth'], function () {
     //Logout
     Route::post('/logout',[AuthenticationController::class,'logout'])->name('logout');
 
-    // Ajax
-    Route::get('/ajax/tempat-sampah', [AjaxController::class, 'getAllBinsData'])->name('getAllBinsData');
-    Route::get('/ajax/tempat-sampah-location', [AjaxController::class, 'getAllBinsLocation'])->name('getAllBinsLocation');
 });

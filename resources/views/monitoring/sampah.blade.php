@@ -13,13 +13,13 @@
         <h1  class="fw-bold pt-5 px-6 text-white">Monitoring Tempat Sampah</h1>
     </div>
     <div class="p-3 border bg-light">
-        <table class="table">
-            <thead class="table-secondary">
-                <tr>
-                    <th scope="col">Tempat Sampah</th>
-                    <th scope="col">Volume</th>
-                    <th scope="col">Lokasi</th>
-                </tr>
+        <table class="table responsive">
+            <thead class="table-secondary responsive">
+            <tr>
+                <th scope="col">Tempat Sampah</th>
+                <th scope="col">Volume</th>
+                <th scope="col">Lokasi</th>
+            </tr>
             </thead>
             <tbody>
                 @foreach ($bins as $bin)
@@ -36,7 +36,9 @@
                         @endif
                     </td>
                     <td>{{ $bin->lokasi->alamat }}</td>
-                    <td><a href="#" class="btn btn-primary">Send</a></td>
+                    @auth
+                        <td><a href="#" class="btn btn-primary">Send</a></td>
+                    @endauth
                 </tr>
                 @endforeach
             </tbody>

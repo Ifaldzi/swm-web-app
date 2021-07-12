@@ -5,13 +5,13 @@
     <div class="col-md-5 offset-md-0 mt-4">
         <h1 class="fw-bold pt-4 px-4">Log Pengambilan Sampah</h1>
     </div>
-        <div class="row align-items-center">
+        {{-- <div class="row align-items-center"> --}}
             <div class="container-lg my-5">
                 <div class="row justify-content-md-center">
-                    <div class="col-10">
+                    {{-- <div class="col-10"> --}}
                         <div class="p-3 border bg-light">
-                            <table class="table">
-                                <thead class="table-secondary">
+                            <table class="table responsive">
+                                <thead class="table-secondary responsive">
                                 <tr align="center">
                                     <th scope="col">ID Tempat Sampah</th>
                                     <th scope="col">Waktu Pengambilan</th>

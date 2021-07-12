@@ -4,7 +4,7 @@
     <div class="container-lg my-5">
         <div class="row g-2">
             {{-- =====================Map Content============================ --}}
-            <div class="col ">
+            <div class="col">
                 @yield('maps-content')
             </div>
             {{-- ========================End Map Content====================== --}}
