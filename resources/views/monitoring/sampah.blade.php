@@ -10,7 +10,7 @@
 
 @section('table-content')
     <div class="col-md-5 offset-md-0 mt-4">
-        <h1  class="fw-bold pt-5 px-6 text-white">Monitoring Tempat</h1>
+        <h1  class="fw-bold pt-5 px-6 text-white">Monitoring Tempat Sampah</h1>
     </div>
     <div class="p-3 border bg-light">
         <table class="table">

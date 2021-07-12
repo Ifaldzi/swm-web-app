@@ -6,6 +6,7 @@ use App\Http\Controllers\AuthenticationController;
 use App\Http\Controllers\BinsController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\TrucksController;
+use App\Http\Controllers\TrashLogsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,7 +41,7 @@ Route::get('/monitoring-truk',[TrucksController::class,'index'])->name('monitori
 Route::get('/monitoring-sampah',[BinsController::class,'index'])->name('monitoring-sampah');
 
 //Log
-Route::get('/LogSampah',[PagesController::class,'LogSampah'])->name('LogSampah');
+Route::get('/LogSampah',[TrashLogsController::class,'LogSampah'])->name('LogSampah');
 
 //Fastest track
 Route::get('/RuteTercepat',[PagesController::class,'RuteTercepat'])->name('RuteTercepat');

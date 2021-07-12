@@ -50,7 +50,7 @@
       {{-- </a> --}}
 
       <nav id="navbar" class="navbar order-last order-lg-0 navbar-dark">
-        <ul class = "me-1 text-center">
+        <ul class = "me-4 text-center">
           <li><a href="{{route('home')}}" class="{{  Route::is('home') ? 'active' : '' }}">Home</a></li>
           @if (Auth::check())
             <li><a href="{{route('registration')}}" class = "{{  Route::is('registration') ? 'active' : ''  }}">REGISTRASI<br>PETUGAS</a></li>
