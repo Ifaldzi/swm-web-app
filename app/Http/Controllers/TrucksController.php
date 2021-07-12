@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\KendaraanPengangkutSampah;
+use Illuminate\Pagination\Paginator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+
+
 
 class TrucksController extends Controller
 {
@@ -15,7 +18,8 @@ class TrucksController extends Controller
      */
     public function index()
     {
-        $trucks = KendaraanPengangkutSampah::all();
+        Paginator:: useBootstrap();
+        $trucks = KendaraanPengangkutSampah::paginate(3);
         return view('monitoring/truk',['trucks'=>$trucks]);
     }
 
