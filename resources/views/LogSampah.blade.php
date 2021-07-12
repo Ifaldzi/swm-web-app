@@ -28,6 +28,7 @@
                                             <td >{{$log->waktu_penuh}}</td>
                                             <td >{{$log->id_truk}}</td>
                                             <td >{{$log->alamat}}</td>
+
                                             @if (Auth::check())
                                                 <th scope="row">
                                                 <div class="list-group">
@@ -48,4 +49,6 @@
                 </div>
             </div>
         </div>
+    </div>
+
 </div>

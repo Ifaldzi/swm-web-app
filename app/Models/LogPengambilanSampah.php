@@ -9,6 +9,7 @@ class LogPengambilanSampah extends Model
 {
     protected $table = 'log_pengambilan_sampah';
     use HasFactory;
+    public $timestamps = false;
     protected $fillable = [
         'waktu_penuh',
         'waktu_pengambilan'
