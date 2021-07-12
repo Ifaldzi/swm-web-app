@@ -2,25 +2,29 @@
 @section('content')
 
 <div class="container pt-5">
-    <div class="col-md-5 offset-md-0 mt-4">
+    <div class="col-md-5 offset-md-0 mt-4 ">
         <h1 class="fw-bold pt-4 px-4">Log Pengambilan Sampah</h1>
     </div>
         {{-- <div class="row align-items-center"> --}}
-            <div class="container-lg my-5">
+            <div class="my-5 ">
                 <div class="row justify-content-md-center">
                     {{-- <div class="col-10"> --}}
-                        <div class="p-3 border bg-light">
-                            <table class="table responsive">
-                                <thead class="table-secondary responsive">
+                        <div class="p-3  bg-light ">
+                            <table class="table table-responsive align-center mx-auto">
+                                <thead class="table-secondary">
                                 <tr align="center">
                                     <th scope="col">ID Tempat Sampah</th>
                                     <th scope="col">Waktu Pengambilan</th>
                                     <th scope="col">Waktu Penuh</th>
                                     <th scope="col">ID Truk</th>
                                     <th scope="col">Lokasi Tempat Sampah</th>
+                                    @if (Auth::check())
+                                        <th scope="col">Check</th>
+                                        <th scope="col">Aksi</th>
+                                    @endif
                                 </tr>
                                 </thead>
-                                <tbody>
+                                <tbody class="">
                                     @foreach ($logs as $log)
                                         <tr align="center">
                                             <td >{{$log->id_tempat_sampah}}</td>
