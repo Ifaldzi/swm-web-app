@@ -1,7 +1,7 @@
 @extends('layouts/mainLayout')
 
 @section('content')
-    <div class="container pt-5 mb-5">
+    <div class="container pt-5 mb-5 ">
         <div class="col-md-4 offset-md-4 mt-5 mb-5">
             <div class="card bg-light pb-5">
                 <div class="header mx-auto">

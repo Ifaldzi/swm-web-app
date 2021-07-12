@@ -15,11 +15,11 @@
     <div class="col-md-5 offset-md-0 mt-4">
         <h1 class="fw-bold pt-5 px-6 text-white">Monitoring Truk</h1>
     </div>
-    <div class="p-3 border bg-light">
-        <table class="table">
+    <div class="p-1 border bg-light">
+        <table class="table table-responsive">
             <thead class="table-secondary">
             <tr>
-                <th scope="col">Truk</th>
+                <th scope="col"></th>
                 <th scope="col">Nomor Truk</th>
                 <th scope="col">Nama Truk</th>
                 <th scope="col">Area</th>

@@ -1,7 +1,7 @@
 @extends('layouts/mainLayout')
 @section('content')
 
-    <div class="container-lg my-5">
+    <div class="container my-5">
         <div class="row g-2">
             {{-- =====================Map Content============================ --}}
             <div class="col">
