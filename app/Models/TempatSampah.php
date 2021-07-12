@@ -70,8 +70,6 @@ class TempatSampah extends Model
         if ($response === false)
                 $response = curl_error($curl);
 
-        // curl_close($curl);
-
         $httpCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
 
         if($httpCode != "404") {
@@ -85,6 +83,7 @@ class TempatSampah extends Model
             $distance = $JSON[0]['distance'];//-> Array
         }else{
             // echo "ERROR[002] : Application Name or Device Name is Wrong";
+            curl_close($curl);
             return collect(['code' => $httpCode, 'status' => 'ERROR[002] : Application Name or Device Name is Wrong']);
         }
 

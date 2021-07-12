@@ -5,13 +5,13 @@
     <div class="col-md-5 offset-md-0 mt-4">
         <h1 class="fw-bold pt-4 px-4">Log Pengambilan Sampah</h1>
     </div>
-        <div class="row align-items-center">
+        {{-- <div class="row align-items-center"> --}}
             <div class="container-lg my-5">
                 <div class="row justify-content-md-center">
-                    <div class="col-10">
+                    {{-- <div class="col-10"> --}}
                         <div class="p-3 border bg-light">
-                            <table class="table">
-                                <thead class="table-secondary">
+                            <table class="table responsive">
+                                <thead class="table-secondary responsive">
                                 <tr align="center">
                                     <th scope="col">ID Tempat Sampah</th>
                                     <th scope="col">Waktu Pengambilan</th>
@@ -21,16 +21,14 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                    @php
-                                        // $location = Lokasi::all();
-                                    @endphp
                                     @foreach ($logs as $log)
                                         <tr align="center">
                                             <td >{{$log->id_tempat_sampah}}</td>
                                             <td >{{$log->waktu_pengambilan}}</td>
                                             <td >{{$log->waktu_penuh}}</td>
                                             <td >{{$log->id_truk}}</td>
-                                            <td >{{}}</td>
+                                            <td >{{$log->alamat}}</td>
+
                                             @if (Auth::check())
                                                 <th scope="row">
                                                 <div class="list-group">
@@ -43,6 +41,9 @@
                                     @endforeach
                                 </tbody>
                             </table>
+                            <div class="d-flex justify-content-center">
+                                {{ $logs->links() }}
+                            </div>
                         </div>
                     </div>
                 </div>

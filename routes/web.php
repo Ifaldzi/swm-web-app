@@ -8,6 +8,7 @@ use App\Http\Controllers\ChartsController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\PickUpLogController;
 use App\Http\Controllers\TrucksController;
+use App\Http\Controllers\TrashLogsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,9 +43,9 @@ Route::get('/monitoring-truk',[TrucksController::class,'index'])->name('monitori
 Route::get('/monitoring-sampah',[BinsController::class,'index'])->name('monitoring-sampah');
 
 //Log
-Route::get('/LogSampah',[PickUpLogController::class,'index'])->name('LogSampah');
 Route::get('/Chart',[ChartsController::class,'index'])->name('Chart');
-// Route::get('/Chart',[ChartsController::class,'handleChart'])->name('Chart');
+Route::get('/LogSampah',[TrashLogsController::class,'LogSampah'])->name('LogSampah');
+
 
 //Fastest track
 Route::get('/RuteTercepat',[PagesController::class,'RuteTercepat'])->name('RuteTercepat');
@@ -70,4 +71,5 @@ Route::group(['middleware' => 'auth'], function () {
 
     //Logout
     Route::post('/logout',[AuthenticationController::class,'logout'])->name('logout');
+
 });
