@@ -21,13 +21,13 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                    @for ($i=0;$i<7;$i++)
+                                    @foreach ($logs as $log)
                                         <tr align="center">
-                                            <td >xxxxx</td>
-                                            <td >12:00</td>
-                                            <td >11:10</td>
-                                            <td >xxxxx</td>
-                                            <td >Ciwaruga</td>
+                                            <td >{{$log->id_tempat_sampah}}</td>
+                                            <td >{{$log->waktu_pengambilan}}</td>
+                                            <td >{{$log->waktu_penuh}}</td>
+                                            <td >{{$log->id_truk}}</td>
+                                            <td >{{$log->alamat}}</td>
                                             @if (Auth::check())
                                                 <th scope="row">
                                                 <div class="list-group">
@@ -37,9 +37,12 @@
                                                 <td><a href="#" class="btn btn-danger">Delete</a></td>
                                             @endif
                                         </tr>
-                                    @endfor
+                                    @endforeach
                                 </tbody>
                             </table>
+                            <div class="d-flex justify-content-center">
+                                {{ $logs->links() }}
+                            </div>
                         </div>
                     </div>
                 </div>
