@@ -4,6 +4,7 @@ use App\Http\Controllers\AjaxController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthenticationController;
 use App\Http\Controllers\BinsController;
+use App\Http\Controllers\ChartsController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\PickUpLogController;
 use App\Http\Controllers\TrucksController;
@@ -19,7 +20,7 @@ use App\Http\Controllers\TrucksController;
 |
 */
 
-// Route::get('/', function () {
+// Route::get('/Sample-Chart', function () {
 //     return view('index');
 // })->name('home');
 
@@ -42,9 +43,15 @@ Route::get('/monitoring-sampah',[BinsController::class,'index'])->name('monitori
 
 //Log
 Route::get('/LogSampah',[PickUpLogController::class,'index'])->name('LogSampah');
+Route::get('/Chart',[ChartsController::class,'index'])->name('Chart');
+// Route::get('/Chart',[ChartsController::class,'handleChart'])->name('Chart');
 
 //Fastest track
 Route::get('/RuteTercepat',[PagesController::class,'RuteTercepat'])->name('RuteTercepat');
+
+// Ajax
+Route::get('/ajax/tempat-sampah', [AjaxController::class, 'getAllBinsData'])->name('getAllBinsData');
+Route::get('/ajax/tempat-sampah-location', [AjaxController::class, 'getAllBinsLocation'])->name('getAllBinsLocation');
 
 
 Route::group(['middleware' => 'auth'], function () {
@@ -63,8 +70,4 @@ Route::group(['middleware' => 'auth'], function () {
 
     //Logout
     Route::post('/logout',[AuthenticationController::class,'logout'])->name('logout');
-
-    // Ajax
-    Route::get('/ajax/tempat-sampah', [AjaxController::class, 'getAllBinsData'])->name('getAllBinsData');
-    Route::get('/ajax/tempat-sampah-location', [AjaxController::class, 'getAllBinsLocation'])->name('getAllBinsLocation');
 });

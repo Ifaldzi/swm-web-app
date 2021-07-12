@@ -32,8 +32,8 @@ class TempatSampahSeeder extends Seeder
             'id_truk' => $id_truk->id,
             'id_administrator' => 1,
             'device_name'=>'Esp_test',
-            'volume_tempat_sampah'=>rand(100,1000),
-            'tinggi_tempat_sampah'=>rand(10,200),
+            'volume_tempat_sampah'=>0.96,
+            'tinggi_tempat_sampah'=>15,
         ]);
         Lokasi::factory()->create();
 

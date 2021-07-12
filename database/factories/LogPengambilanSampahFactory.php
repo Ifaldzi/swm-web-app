@@ -28,7 +28,7 @@ class LogPengambilanSampahFactory extends Factory
         return [
             'id_tempat_sampah'=>$tempatSampah->random()->id,
             'id_truk'=>$truk->random()->id,
-            'waktu_penuh'=>$this->faker->dateTimeThisMonth(),
+            'waktu_penuh'=>$this->faker->dateTimeBetween('-1 year','now'),
             'waktu_pengambilan'=>$this->faker->dateTimeThisMonth()
         ];
     }

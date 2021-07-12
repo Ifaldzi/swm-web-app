@@ -16,7 +16,7 @@ class LogPengambilanSampahSeeder extends Seeder
      */
     public function run()
     {
-        LogPengambilanSampah::factory()->count(50)
+        LogPengambilanSampah::factory()->count(1000)
         ->create();
     }
 }

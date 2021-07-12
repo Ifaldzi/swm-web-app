@@ -22,8 +22,8 @@ class LokasiFactory extends Factory
      */
     public function definition()
     {
-        $long = 107.688080;
-        $lang = -6.526319;
+        $long = 107.60741108707936;
+        $lang = -6.921615329078;
         // -6.526613, 107.688170
         $tempatSampah = TempatSampah::all();
         foreach ($tempatSampah as $tempat_sampah ) {
@@ -32,7 +32,7 @@ class LokasiFactory extends Factory
 
         return [
         'id_tempat_sampah'=>$id,
-        'alamat'=>"subang",
+        'alamat'=>"Kec. Regol",
         "latitude" => $this->faker->latitude(
             $min = ($lang * 10000 - rand(0, 50)) / 10000,
             $max = ($lang * 10000 + rand(0, 50)) / 10000
