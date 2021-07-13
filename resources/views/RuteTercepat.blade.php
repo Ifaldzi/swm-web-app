@@ -19,7 +19,7 @@
             <!-- membuat card -->
             <div class="col-5">
                 <div class="card text-white bg-success mb-3 mr-5" style="max-width: 18rem;">
-                    <div class="card-header">5 min (1.5 km)</div>
+                    <div class="card-header" id="route-detail">Menghitung...</div>
                         <div class="card-body">
                             <h5 class="card-title">Rute tercepat dengan lalu lintas biasa</h5>
                         </div>
@@ -38,5 +38,8 @@
     <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-mapevents.js"></script>
     <link rel="stylesheet" type="text/css" href="https://js.api.here.com/v3/3.1/mapsjs-ui.css" />
 
-    <script src="{{ asset('js/Maps/maps.js') }}"></script>
+    <!-- JQuery Lib -->
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+    <script src="{{ asset('js/Maps/truck_route.js') }}"></script>
 @endsection
