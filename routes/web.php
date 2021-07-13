@@ -4,8 +4,11 @@ use App\Http\Controllers\AjaxController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthenticationController;
 use App\Http\Controllers\BinsController;
+use App\Http\Controllers\ChartsController;
 use App\Http\Controllers\PagesController;
+use App\Http\Controllers\PickUpLogController;
 use App\Http\Controllers\TrucksController;
+use App\Http\Controllers\TrashLogsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,7 +21,7 @@ use App\Http\Controllers\TrucksController;
 |
 */
 
-// Route::get('/', function () {
+// Route::get('/Sample-Chart', function () {
 //     return view('index');
 // })->name('home');
 
@@ -40,7 +43,9 @@ Route::get('/monitoring-truk',[TrucksController::class,'index'])->name('monitori
 Route::get('/monitoring-sampah',[BinsController::class,'index'])->name('monitoring-sampah');
 
 //Log
-Route::get('/LogSampah',[PagesController::class,'LogSampah'])->name('LogSampah');
+Route::get('/Chart',[ChartsController::class,'index'])->name('Chart');
+Route::get('/LogSampah',[TrashLogsController::class,'LogSampah'])->name('LogSampah');
+
 
 //Fastest track
 Route::get('/RuteTercepat',[PagesController::class,'RuteTercepat'])->name('RuteTercepat');
@@ -48,6 +53,7 @@ Route::get('/RuteTercepat',[PagesController::class,'RuteTercepat'])->name('RuteT
 // Ajax
 Route::get('/ajax/tempat-sampah', [AjaxController::class, 'getAllBinsData'])->name('getAllBinsData');
 Route::get('/ajax/tempat-sampah-location', [AjaxController::class, 'getAllBinsLocation'])->name('getAllBinsLocation');
+
 
 Route::group(['middleware' => 'auth'], function () {
 

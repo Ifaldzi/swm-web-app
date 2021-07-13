@@ -2,15 +2,15 @@
 @section('content')
 
 <div class="container pt-5">
-    <div class="col-md-5 offset-md-0 mt-4">
+    <div class="col-md-5 offset-md-0 mt-4 ">
         <h1 class="fw-bold pt-4 px-4">Log Pengambilan Sampah</h1>
     </div>
-        <div class="row align-items-center">
-            <div class="container-lg my-5">
+        {{-- <div class="row align-items-center"> --}}
+            <div class="my-5 ">
                 <div class="row justify-content-md-center">
-                    <div class="col-10">
-                        <div class="p-3 border bg-light">
-                            <table class="table">
+                    {{-- <div class="col-10"> --}}
+                        <div class="p-3  bg-light ">
+                            <table class="table table-responsive align-center mx-auto">
                                 <thead class="table-secondary">
                                 <tr align="center">
                                     <th scope="col">ID Tempat Sampah</th>
@@ -18,16 +18,21 @@
                                     <th scope="col">Waktu Penuh</th>
                                     <th scope="col">ID Truk</th>
                                     <th scope="col">Lokasi Tempat Sampah</th>
+                                    @if (Auth::check())
+                                        <th scope="col">Check</th>
+                                        <th scope="col">Aksi</th>
+                                    @endif
                                 </tr>
                                 </thead>
-                                <tbody>
-                                    @for ($i=0;$i<7;$i++)
+                                <tbody class="">
+                                    @foreach ($logs as $log)
                                         <tr align="center">
-                                            <td >xxxxx</td>
-                                            <td >12:00</td>
-                                            <td >11:10</td>
-                                            <td >xxxxx</td>
-                                            <td >Ciwaruga</td>
+                                            <td >{{$log->id_tempat_sampah}}</td>
+                                            <td >{{$log->waktu_pengambilan}}</td>
+                                            <td >{{$log->waktu_penuh}}</td>
+                                            <td >{{$log->id_truk}}</td>
+                                            <td >{{$log->alamat}}</td>
+
                                             @if (Auth::check())
                                                 <th scope="row">
                                                 <div class="list-group">
@@ -37,12 +42,17 @@
                                                 <td><a href="#" class="btn btn-danger">Delete</a></td>
                                             @endif
                                         </tr>
-                                    @endfor
+                                    @endforeach
                                 </tbody>
                             </table>
+                            <div class="d-flex justify-content-center">
+                                {{ $logs->links() }}
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+
 </div>

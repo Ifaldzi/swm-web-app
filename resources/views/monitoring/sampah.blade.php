@@ -10,21 +10,26 @@
 
 @section('table-content')
     <div class="col-md-5 offset-md-0 mt-4">
-        <h1  class="fw-bold pt-5 px-6 text-white">Monitoring Tempat</h1>
+        <h1  class="fw-bold pt-5 px-6 text-white">Monitoring Tempat Sampah</h1>
     </div>
     <div class="p-3 border bg-light">
-        <table class="table">
+        <table class="table table-responsive">
             <thead class="table-secondary">
-                <tr>
-                    <th scope="col">Tempat Sampah</th>
-                    <th scope="col">Volume</th>
-                    <th scope="col">Lokasi</th>
-                </tr>
+            <tr>
+                <th scope="col"></th>
+                <th scope="col">Nama</th>
+                <th scope="col">Volume</th>
+                <th scope="col">Lokasi</th>
+                @if (Auth::check())
+                    <th scope="col">Aksi</th>
+                @endif
+            </tr>
             </thead>
             <tbody>
                 @foreach ($bins as $bin)
                 <tr class="align-middle">
                     <th scope="row"><img src="assets/img/icon/tongSampah.jpeg" alt=""class="img-thumbnail" onclick="goToLocation({{ json_encode($bin->lokasi) }})"></th>
+                    <td>{{$bin->device_name}}</td>
                     <td >
                         @php
                             $response = $bin->calculateVolume();
@@ -37,12 +42,33 @@
                     </td>
                     <td>{{ $bin->lokasi->alamat }}</td>
                     @auth
-                        <td><a href="#" class="btn btn-primary">Send</a></td>
+                    @if ($response['volume']>=90)
+                        <td>
+                        <button class="btn btn-primary position-relative">Send
+                        <span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle">
+                            <span class="visually-hidden">New alerts</span>
+                        </button>
+                        </td>
+                    @elseif ($response['volume']>=50 && $response['volume']<=90)
+                        <td><button class="btn btn-primary position-relative ">Send
+                        </button>
+                        </td>
+
+
+                    @else
+                        <td><button class="btn btn-primary position-relative disabled">Send
+                        </button>
+                        </td>
+
+                    @endif
                     @endauth
                 </tr>
                 @endforeach
             </tbody>
         </table>
+        <div class="d-flex justify-content-center">
+            {{ $bins->links() }}
+        </div>
         @if (Auth::check())
             <div class="d-grid gap-2 col-6 mx-auto  ">
                 <a class="btn btn-primary" href="{{route('addTempatSampah')}}">Tambah Tempat Sampah</a>

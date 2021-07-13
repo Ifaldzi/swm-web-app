@@ -360,7 +360,7 @@ h1, h2, h3, h4, h5, h6 {
 --------------------------------------------------------------*/
 #hero {
   width: 100%;
-  height: 100vh;
+  height: 70vh;
   background-color: rgba(0, 0, 0, 0.8);
   overflow: hidden;
   position: relative;
@@ -516,6 +516,7 @@ h1, h2, h3, h4, h5, h6 {
   #hero {
     height: 120vh;
   }
+  /* footer { position: static; } */
 }
 
 /*--------------------------------------------------------------
@@ -2049,6 +2050,8 @@ section {
   color: #fff;
   font-size: 14px;
   background: #111;
+  position: relative;
+  bottom: 0;
 }
 
 #footer .footer-top {
@@ -2209,3 +2212,31 @@ input{
   left: 32%;
   top: -30px;
 }
+
+table.responsive {
+    margin-bottom: 0;
+    overflow: hidden;
+    overflow-x: scroll;
+    display: block;
+    white-space: nowrap;
+  }
+
+  table-secondary.responsive {
+    margin-bottom: 0;
+    overflow: hidden;
+    overflow-x: scroll;
+    display: block;
+    white-space: nowrap;
+  }
+
+  .footer-distributed{
+    background-color: #292c2f;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+    box-sizing: border-box;
+    width: 100%;
+    text-align: left;
+    font: bold 16px sans-serif;
+
+    padding: 20px 10px;
+    margin-top: 175px;
+   }

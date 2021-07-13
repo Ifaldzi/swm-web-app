@@ -10,8 +10,9 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="{{asset('assets/img/favicon.png')}}" rel="icon">
-  <link href="{{asset('assets/img/apple-touch-icon.png')}}" rel="apple-touch-icon">
+  <link rel="icon" type="image/png" href="assets/img/wall-e.png" />
+  {{-- {{-- <link href="{{asset('assets/img/wall-e.png')}}" rel="icon"> --}}
+  {{-- <link href="{{asset('assets/img/wall-e.png')}}" rel="apple-touch-icon"> --}}
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -50,7 +51,7 @@
       {{-- </a> --}}
 
       <nav id="navbar" class="navbar order-last order-lg-0 navbar-dark">
-        <ul class = "me-1 text-center">
+        <ul class = "me-5 text-center">
           <li><a href="{{route('home')}}" class="{{  Route::is('home') ? 'active' : '' }}">Home</a></li>
           @if (Auth::check())
             <li><a href="{{route('registration')}}" class = "{{  Route::is('registration') ? 'active' : ''  }}">REGISTRASI<br>PETUGAS</a></li>
@@ -88,6 +89,7 @@
 
           <li><a href="{{route('monitoring-sampah')}}" class="{{  Route::is('monitoring-sampah') ? 'active' : '' }}">MONITORING<br>TEMPAT SAMPAH</a></li>
           <li><a href="{{route('monitoring-truk')}}"class="{{  Route::is('monitoring-truk') ? 'active' : '' }}">MONITORING<br>TRUK</a></li>
+          <li><a href="{{route('addTruk')}}"class="{{  Route::is('monitoring-truk') ? 'active' : '' }} visually-hidden">ADD<br>TRUK</a></li>
           @if (Auth::check())
             <li class="dropdown me-5">
                 <a  href="#" role="button" class="nav-link dropdown" id="dropdownLogout" data-bs-toggle="dropdown" aria-expanded="false">
@@ -118,7 +120,7 @@
   <!-- end content -->
 
   <!-- ======= Footer ======= -->
-  <footer id="footer">
+  <footer class="footer-distributed" id="footer">
     <div class="container d-md-flex py-4">
 
       <div class="me-md-auto text-center text-md-start">

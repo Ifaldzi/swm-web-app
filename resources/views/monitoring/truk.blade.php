@@ -4,19 +4,22 @@
     <div class="col-md-5 offset-md-0 mt-4">
         <h1 class="fw-bold pt-5 px-6">Monitoring Truk</h1>
     </div>
-    <div class="p-3 border bg-light" id="map-container" style="height: 500px"></div>
+    <div class="p-3 border bg-light">
+        <h1 class="align-middle text-center"> <br><br><br>COMING<br>SOON<br><br><br><br><br>
 
+        </h1>
+    </div>
 @endsection
 
 @section('table-content')
     <div class="col-md-5 offset-md-0 mt-4">
-        <h1 class="fw-bold pt-5 px-6 text-white">Monitoring</h1>
+        <h1 class="fw-bold pt-5 px-6 text-white">Monitoring Truk</h1>
     </div>
-    <div class="p-3 border bg-light">
-        <table class="table">
+    <div class="p-1 border bg-light">
+        <table class="table table-responsive">
             <thead class="table-secondary">
             <tr>
-                <th scope="col">Truk</th>
+                <th scope="col"></th>
                 <th scope="col">Nomor Truk</th>
                 <th scope="col">Nama Truk</th>
                 <th scope="col">Area</th>
@@ -36,6 +39,9 @@
                 @endforeach
             </tbody>
         </table>
+        <div class="d-flex justify-content-center">
+            {{ $trucks->links() }}
+        </div>
         @if (Auth::check())
             <div class="d-grid gap-2 col-6 mx-auto  ">
                 <a class="btn btn-primary" href="{{route('addTruk')}}">Tambah Truk</a>

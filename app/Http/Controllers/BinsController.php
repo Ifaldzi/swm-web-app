@@ -6,6 +6,7 @@ use App\Models\KendaraanPengangkutSampah;
 use App\Models\Lokasi;
 use App\Models\TempatSampah;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
@@ -18,7 +19,8 @@ class BinsController extends Controller
      */
     public function index()
     {
-        $bins = TempatSampah::all();
+        Paginator::useBootstrap();
+        $bins = TempatSampah::paginate(3);
         return view('monitoring.sampah', compact('bins'));
     }
 
