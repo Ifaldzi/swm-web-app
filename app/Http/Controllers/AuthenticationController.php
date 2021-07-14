@@ -36,6 +36,7 @@ class AuthenticationController extends Controller
         }
     }
 
+
     private function validator(Request $request)
     {
         //validation rules.
