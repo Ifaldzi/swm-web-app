@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Charts\SampleChart;
+use App\Models\Administrator;
 use App\Models\LogPengambilanSampah;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
@@ -12,6 +13,12 @@ class ChartsController extends Controller
 {
     public function index(Request $request)
     {
+        $admins = Administrator::first();
+        $admin = [];
+        foreach ($admins as $key) {
+            array_push($admin,$key);
+
+        }
         $item=[];
         $values = DB::table('log_pengambilan_sampah')
         ->select(DB::raw('DATE(waktu_penuh) as date',), DB::raw('count(*) as frecuency'))
@@ -44,7 +51,7 @@ class ChartsController extends Controller
             ],
         ];
     // return dump($artikel);
-    return dd($res);
+    return dd($admins->username);
     }
     public function handleChart()
     {
