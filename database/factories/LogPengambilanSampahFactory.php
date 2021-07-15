@@ -25,11 +25,14 @@ class LogPengambilanSampahFactory extends Factory
     {
         $tempatSampah = TempatSampah::all();
         $truk = KendaraanPengangkutSampah::all();
+        $startDate = $this->faker->dateTimeBetween('-1 year','now');
+        $startDateClone = clone $startDate;
+        $endDate = $this->faker->dateTimeBetween($startDate, $startDateClone->modify('+1 hours'));
         return [
             'id_tempat_sampah'=>$tempatSampah->random()->id,
             'id_truk'=>$truk->random()->id,
-            'waktu_penuh'=>$this->faker->dateTimeBetween('-1 year','now'),
-            'waktu_pengambilan'=>$this->faker->dateTimeThisMonth()
+            'waktu_penuh'=>$startDate,
+            'waktu_pengambilan'=>$endDate
         ];
     }
 }

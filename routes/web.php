@@ -6,7 +6,6 @@ use App\Http\Controllers\AuthenticationController;
 use App\Http\Controllers\BinsController;
 use App\Http\Controllers\ChartsController;
 use App\Http\Controllers\PagesController;
-use App\Http\Controllers\PickUpLogController;
 use App\Http\Controllers\TrucksController;
 use App\Http\Controllers\TrashLogsController;
 

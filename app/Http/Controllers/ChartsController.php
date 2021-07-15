@@ -8,6 +8,7 @@ use App\Models\LogPengambilanSampah;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Chartisan\PHP\Chartisan;
+use Illuminate\Support\Facades\Hash;
 
 class ChartsController extends Controller
 {
@@ -51,7 +52,8 @@ class ChartsController extends Controller
             ],
         ];
     // return dump($artikel);
-    return dd($admins->username);
+    $pw = Hash::make('admin2');
+    return dd($pw);
     }
     public function handleChart()
     {

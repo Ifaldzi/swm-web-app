@@ -63,6 +63,7 @@ class TrucksController extends Controller
             ->withInput($request->all());
         }
         KendaraanPengangkutSampah::create($request->all());
+
         return redirect()
                 ->intended(route('monitoring-truk'))
                 ->with('status','Truk Baru Berhasil Ditambahkan!');
