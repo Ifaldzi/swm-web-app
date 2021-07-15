@@ -42,14 +42,6 @@ class AuthenticationController extends Controller
         $rules = [
             'username'    => 'required|exists:administrator',
             'password'    => 'required|exists:administrator,password',
-
-            'username_petugas'    => 'required|unique:petugas_kebersihan',
-            'password_petugas' => 'required|min:4|max:255',
-            'id_truk' => 'required',
-            'nama' => 'required|max:255',
-            'jenis_kelamin' => 'required',
-            'no_telp' => 'required|min:11|max:13',
-            'alamat' => 'required|max:255',
         ];
 
         //custom validation error messages.
@@ -58,22 +50,6 @@ class AuthenticationController extends Controller
             'username.exists'       => 'Username tersebut tidak ada',
             'password.required'     => 'Password wajib diisi',
             'password.exists'       => 'Password salah',
-
-            'username_petugas.required'     => 'Username wajib diisi',
-            'username_petugas.unique'     => 'Username tersebut telah digunakan',
-            'password_petugas.required'     => 'Password wajib diisi',
-            'password_petugas.min'     => 'Password minimal 4 karakter',
-            'password_petugas.max'     => 'Password minimal 255 karakter',
-            'id_truk.required'     => 'truk wajib dipilih',
-            'nama.required'     => 'nama wajib diisi',
-            'nama.max'     => 'Nama maksimal 255 karakter',
-            'jenis_kelamin.required'     => 'jenis kelamin wajib dipilih',
-            'no_telp.required'     => 'Nomor Telepon wajib diisi',
-            'no_telp.min'     => 'Nomor Telepon min 11 digit',
-            'no_telp.max'     => 'Nomor Telepon maks 13 digit',
-            'no_telp.numeric'     => 'Nomor Telepon harus berupa angka',
-            'alamat.required'     => 'Alamat wajib diisi',
-            'alamat.max'     => 'Alamat maksimal 255 karakter',
         ];
 
         $password = Hash::make($request->password);
@@ -105,7 +81,7 @@ class AuthenticationController extends Controller
 
     public function registration(Request $request)
     {
-        $validator=$this->validator($request);
+        $validator=$this->validatorRegistration($request);
         if($validator->fails())
         {
             return redirect()
@@ -128,11 +104,51 @@ class AuthenticationController extends Controller
             'alamat' => $request->alamat,
             'id_petugas' => $petugasKebersihan->id,
         ]);
-        return redirect('/registration');
+        return redirect('/registration')->with('success', 'Registrasi petugas berhasil');
     }
 
     public function logout(){
         Auth::logout();
         return redirect()->route('home')->with('status','Admin has been logged out!');
+    }
+
+    private function validatorRegistration(Request $request)
+    {
+        //validation rules.
+        $rules = [
+            'username_petugas'    => 'required|unique:petugas_kebersihan',
+            'password_petugas' => 'required|min:4|max:255',
+            'id_truk' => 'required',
+            'nama' => 'required|max:255',
+            'jenis_kelamin' => 'required',
+            'no_telp' => 'required|min:11|max:13',
+            'alamat' => 'required|max:255',
+        ];
+
+        //custom validation error messages.
+        $messages = [
+            'username_petugas.required'     => 'Username wajib diisi',
+            'username_petugas.unique'     => 'Username tersebut telah digunakan',
+            'password_petugas.required'     => 'Password wajib diisi',
+            'password_petugas.min'     => 'Password minimal 4 karakter',
+            'password_petugas.max'     => 'Password minimal 255 karakter',
+            'id_truk.required'     => 'truk wajib dipilih',
+            'nama.required'     => 'nama wajib diisi',
+            'nama.max'     => 'Nama maksimal 255 karakter',
+            'jenis_kelamin.required'     => 'jenis kelamin wajib dipilih',
+            'no_telp.required'     => 'Nomor Telepon wajib diisi',
+            'no_telp.min'     => 'Nomor Telepon min 11 digit',
+            'no_telp.max'     => 'Nomor Telepon maks 13 digit',
+            'no_telp.numeric'     => 'Nomor Telepon harus berupa angka',
+            'alamat.required'     => 'Alamat wajib diisi',
+            'alamat.max'     => 'Alamat maksimal 255 karakter',
+        ];
+
+        $password = Hash::make($request->password);
+        $input = $request->all();
+        Arr::set($input, 'password', $password);
+
+        //validate the request.
+        return Validator::make($input, $rules, $messages);
     }
 }

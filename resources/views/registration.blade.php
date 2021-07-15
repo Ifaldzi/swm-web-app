@@ -4,6 +4,11 @@
 @section('content')
     <div class="container pt-5 pb-4">
         <div class="col-md-4 offset-md-4 mt-5">
+            @if (session('success'))
+                <div class="alert alert-success">
+                    <h4 class="alert-heading text-center">{{ session('success') }} !</h4>
+                </div>
+            @endif
             <div class="card bg-light">
                 <div class="header mx-auto">
                     <h3 class="fw-bold text-center pt-4 px-4">Registrasi Petugas</h3>

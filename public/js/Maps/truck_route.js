@@ -29,6 +29,7 @@ $.ajax({
     url: '/ajax/tempat-sampah',
     success: function(data) {
         var origin = {'longitude': '107.57378231300643', 'latitude': '-6.872143008475433'}
+        map.addObject(new H.map.Marker({lng: 107.57378231300643, lat: -6.872143008475433}));
         const router = platform.getRoutingService(null, 8);
         data.sort(function(a, b){
             return getEuclidean(origin, a)  - getEuclidean(origin, b);
@@ -74,14 +75,11 @@ var onResult = function(result){
             style: { strokeColor: 'blue', lineWidth: 3 }
             });
 
-            // Create a marker for the start point:
-            let startMarker = new H.map.Marker(section.departure.place.location);
-
             // Create a marker for the end point:
             let endMarker = new H.map.Marker(section.arrival.place.location, {icon: icon});
 
-            // Add the route polyline and the two markers to the map:
-            map.addObjects([routeLine, startMarker, endMarker]);
+            // Add the route polyline and a marker to the map:
+            map.addObjects([routeLine, endMarker]);
 
             // Set the map's viewport to make the whole route visible:
             map.getViewModel().setLookAtData({bounds: routeLine.getBoundingBox()});
