@@ -122,7 +122,7 @@ class AuthenticationController extends Controller
             'id_truk' => 'required',
             'nama' => 'required|max:255',
             'jenis_kelamin' => 'required',
-            'no_telp' => 'required|min:11|max:13',
+            'no_telp' => 'required|digits_between:11,13',
             'alamat' => 'required|max:255',
         ];
 
@@ -138,8 +138,7 @@ class AuthenticationController extends Controller
             'nama.max'     => 'Nama maksimal 255 karakter',
             'jenis_kelamin.required'     => 'jenis kelamin wajib dipilih',
             'no_telp.required'     => 'Nomor Telepon wajib diisi',
-            'no_telp.min'     => 'Nomor Telepon min 11 digit',
-            'no_telp.max'     => 'Nomor Telepon maks 13 digit',
+            'no_telp.digits_between'     => 'Nomor Telepon min 11 digit(Angka) dan maks 13 digit(Angka)',
             'no_telp.numeric'     => 'Nomor Telepon harus berupa angka',
             'alamat.required'     => 'Alamat wajib diisi',
             'alamat.max'     => 'Alamat maksimal 255 karakter',
