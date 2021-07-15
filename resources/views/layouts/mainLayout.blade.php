@@ -84,12 +84,11 @@
           @endif
 
 
+          <li><a href="{{route('monitoring-sampah')}}" class="{{  Route::is('monitoring-sampah') ? 'active' : '' }}">MONITORING<br>TEMPAT SAMPAH</a></li>
           <li><a href="{{route('RuteTercepat')}}" class="{{  Route::is('RuteTercepat') ? 'active' : '' }}">RUTE TERCEPAT</a></li>
+          <li><a href="{{route('monitoring-truk')}}"class="{{  Route::is('monitoring-truk') ? 'active' : '' }}">MONITORING<br>TRUK</a></li>
           <li><a href="{{route('LogSampah')}}"class="{{  Route::is('LogSampah') ? 'active' : '' }}">LOG PENGAMBILAN<br>TEMPAT SAMPAH</a></li>
 
-          <li><a href="{{route('monitoring-sampah')}}" class="{{  Route::is('monitoring-sampah') ? 'active' : '' }}">MONITORING<br>TEMPAT SAMPAH</a></li>
-          <li><a href="{{route('monitoring-truk')}}"class="{{  Route::is('monitoring-truk') ? 'active' : '' }}">MONITORING<br>TRUK</a></li>
-          <li><a href="{{route('addTruk')}}"class="{{  Route::is('monitoring-truk') ? 'active' : '' }} visually-hidden">ADD<br>TRUK</a></li>
           @if (Auth::check())
             <li class="dropdown me-5">
                 <a  href="#" role="button" class="nav-link dropdown" id="dropdownLogout" data-bs-toggle="dropdown" aria-expanded="false">
