@@ -8,6 +8,7 @@ use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Support\Facades\Hash;
 use Tests\TestCase;
 
+
 class AuthenticationTest extends TestCase
 {
     /** @test */
@@ -68,7 +69,6 @@ class AuthenticationTest extends TestCase
     public function admin_cannot_logout_when_not_authenticated()
     {
         $response = $this->post(route('logout'));
-
         $response->assertRedirect(route('login'));
         $this->assertGuest();
     }
