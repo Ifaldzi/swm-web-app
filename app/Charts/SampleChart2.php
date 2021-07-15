@@ -26,12 +26,12 @@ class SampleChart2 extends BaseChart
 
         $bins = DB::table('log_pengambilan_sampah')
         ->join('tempat_sampah', 'log_pengambilan_sampah.id', '=', 'tempat_sampah.id')
-        ->select( 'device_name')
         ->get();
+
 
         $name = [];
         foreach ($bins as $bin){
-            array_push($name,$bin->device_name);
+            array_push($name, ["id" => $bin->id, 'name' => $bin->device_name]);
         }
         $labels = ['Minggu 1', 'Minggu 2', 'Minggu 3', 'Minggu 4'];
         $week1 = [];
@@ -40,25 +40,29 @@ class SampleChart2 extends BaseChart
         $week4 = [];
 
         //get data untuk week1
-        $values1 = LogPengambilanSampah::select(DB::raw("COUNT(*) as count"))
+        $values1 = LogPengambilanSampah::select(DB::raw("COUNT(*) as count"), 'id_tempat_sampah')
                 ->whereBetween('waktu_penuh',[date("2021-".$month."-1"),date("2021-".$month."-7")])
                 ->groupBy(DB::raw("id_tempat_sampah"))
-                ->pluck('count');;
-        foreach ($values1 as $item) {
-            array_push($week1,$item);
-        }
-        if(empty($week1))
+                ->get();
+
+        if(count($values1) == 0)
         {
             $week1 = [0,0,0];
         }
+        else
+        {
+            foreach ($name as $key => $value) {
+                array_push($week1, $values1[$key] ? $values1[$key]->count : 0);
+            }
+        }
 
         //get data untuk week2
-        $values2 = LogPengambilanSampah::select(DB::raw("COUNT(*) as count"))
+        $values2 = LogPengambilanSampah::select(DB::raw("COUNT(*) as count"), 'id_tempat_sampah')
                 ->whereBetween('waktu_penuh',[date("2021-".$month."-8"),date("2021-".$month."-14")])
                 ->groupBy(DB::raw("id_tempat_sampah"))
-                ->pluck('count');
-        foreach ($values2 as $item) {
-            array_push($week2,$item);
+                ->get();
+        foreach ($name as $key => $value) {
+            array_push($week2, isset($values2[$key]) ? $values2[$key]->count : 0);
         }
         if(empty($week2))
         {
@@ -66,12 +70,12 @@ class SampleChart2 extends BaseChart
         }
 
         //get data untuk week 3
-        $values3 = LogPengambilanSampah::select(DB::raw("COUNT(*) as count"))
+        $values3 = LogPengambilanSampah::select(DB::raw("COUNT(*) as count"), 'id_tempat_sampah')
                 ->whereBetween('waktu_penuh',[date("2021-".$month."-15"),date("2021-".$month."-21")])
                 ->groupBy(DB::raw("id_tempat_sampah"))
-                ->pluck('count');;
-        foreach ($values3 as $item) {
-            array_push($week3,$item);
+                ->get();
+        foreach ($name as $key => $value) {
+            array_push($week3, isset($values3[$key]) ? $values3[$key]->count : 0);
         }
         if(empty($week3))
         {
@@ -79,23 +83,24 @@ class SampleChart2 extends BaseChart
         }
 
         // get data untuk week 4
-        $values4 = LogPengambilanSampah::select(DB::raw("COUNT(*) as count"))
+        $values4 = LogPengambilanSampah::select(DB::raw("COUNT(*) as count"), 'id_tempat_sampah')
                 ->whereBetween('waktu_penuh',[date("2021-".$month."-22"),date("2021-".$month."-31")])
                 ->groupBy(DB::raw("id_tempat_sampah"))
-                ->pluck('count');
-        foreach ($values4 as $item) {
-
-            array_push($week4,$item);
+                ->get();
+        foreach ($name as $key => $value) {
+            array_push($week4, isset($values4[$key]) ? $values4[$key]->count : 0);
         }
         if(empty($week4))
         {
             $week4 = [0,0,0];
         }
 
+
+
         return Chartisan::build()
             ->labels($labels)
-            ->dataset($name[0], [$week1[0],$week2[0],$week3[0],$week4[0]])
-            ->dataset($name[1], [$week1[1],$week2[1],$week3[1],$week4[1]])
-            ->dataset($name[2], [$week1[2],$week2[2],$week3[2],$week4[2]]);
+            ->dataset($name[0]['name'], [$week1[0],$week2[0],$week3[0],$week4[0]])
+            ->dataset($name[1]['name'], [$week1[1],$week2[1],$week3[1],$week4[1]])
+            ->dataset($name[2]['name'], [$week1[2],$week2[2],$week3[2],$week4[2]]);
     }
 }
