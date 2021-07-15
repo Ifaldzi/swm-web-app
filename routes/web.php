@@ -68,6 +68,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/monitoring-sampah/addTempatSampah',[BinsController::class,'create'])->name('addTempatSampah');
     Route::post('/monitoring-sampah/addTempatSampah',[BinsController::class,'store'])->name('addTempatSampah');
 
+    //delete Log
+    Route::delete('/LogSampah/{log}', [TrashLogsController::class, 'destroy']);
+
     //Logout
     Route::post('/logout',[AuthenticationController::class,'logout'])->name('logout');
 

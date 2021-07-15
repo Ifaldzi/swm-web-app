@@ -19,7 +19,6 @@
                                     <th scope="col">ID Truk</th>
                                     <th scope="col">Lokasi Tempat Sampah</th>
                                     @if (Auth::check())
-                                        <th scope="col">Check</th>
                                         <th scope="col">Aksi</th>
                                     @endif
                                 </tr>
@@ -34,12 +33,14 @@
                                             <td >{{$log->alamat}}</td>
 
                                             @if (Auth::check())
-                                                <th scope="row">
-                                                <div class="list-group">
-                                                        <input class="form-check-input me-1" type="checkbox" value="">
-                                                </div>
-                                                </th>
-                                                <td><a href="#" class="btn btn-danger">Delete</a></td>
+                                                <td>
+
+                                                    <form action="/LogSampah/{{$log->id}}" method="post">
+                                                        @method('delete')
+                                                        @csrf
+                                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                                    </form>
+                                                </td>
                                             @endif
                                         </tr>
                                     @endforeach

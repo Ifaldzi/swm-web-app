@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\LogPengambilanSampah;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Pagination\Paginator;
@@ -18,6 +19,12 @@ class TrashLogsController extends Controller
                                     ->paginate(25);
 
         return view('LogSampah',['logs'=>$logs]);
+    }
+
+    public function destroy(LogPengambilanSampah $log)
+    {
+        LogPengambilanSampah::destroy($log->id);
+        return redirect(route('LogSampah'))->with('delete_log','Data Log Sampah Berhasil Dihapus!');
     }
 
 }
