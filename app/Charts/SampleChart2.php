@@ -52,7 +52,7 @@ class SampleChart2 extends BaseChart
         else
         {
             foreach ($name as $key => $value) {
-                array_push($week1, $values1[$key] ? $values1[$key]->count : 0);
+                array_push($week1, isset($values1[$key]) ? $values1[$key]->count : 0);
             }
         }
 
